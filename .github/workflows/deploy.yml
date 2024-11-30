@@ -19,6 +19,7 @@ jobs:
         with:
           host: 62.72.50.33
           username: u792480622
+          port: 65002
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd public_html
