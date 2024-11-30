@@ -13,7 +13,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to Hostinger
-        uses: peaceiris/actions-ssh-key-action@v3
+        uses: appleboy/ssh-action
         with:
           host: 62.72.50.33
           username: u792480622
