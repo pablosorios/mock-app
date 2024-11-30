@@ -1,13 +1,122 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana;
+	--background: 0deg 0% 100%;
+	--foreground: 200deg 12% 95%;
+	--primary: 191deg 91% 54%;
+	--secondary: 201deg 78% 57%;
+	--tertiary: 264deg 96% 67%;
+	--text: 210deg 13% 6%;
+	--side: 220deg 8% 23%;
+	--border: 240deg 3% 93%;
+	--filler: 0deg 0% 95%;
+	--blue: 230deg 100% 50%;
+	--purple: 290deg 56% 40%;
+	--red: 350deg 85% 44%;
+	--yellow: 50deg 86% 44%;
+	--green: 167deg 100% 32%;
+	--shadow: 210deg 13% 6%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: 210deg 13% 6%;
+		--foreground: 222deg 15% 17%;
+		--primary: 201deg 78% 57%;
+		--secondary: 191deg 91% 54%;
+		--text: 0deg 0% 100%;
+		--side: 200deg 12% 95%;
+		--filler: 0deg 0% 90%;
+		--border: 209deg 16% 30%;
+		--blue: 218deg 100% 57%;
+		--purple: 289deg 65% 59%;
+		--red: 350deg 85% 64%;
+		--yellow: 50deg 75% 76%;
+		--green: 166deg 47% 67%;
+		--shadow: 210deg 13% 6%;
+	}
+}
+
+@layer components {
+	body {
+		@apply bg-background
+	}
+
+	.sideBar {
+		@apply transition ease-in-out duration-300 origin-left
+		absolute tablet:static tablet:flex
+		flex-col justify-start items-center 
+		w-auto h-auto tablet:h-screen
+		bg-foreground border border-border tablet:border-none
+		shadow-lg shadow-shadow/50 rounded-md tablet:rounded-none
+		tablet:p-0.5 desktop:p-0
+	}
+
+	.sideModal {
+		@apply transition ease-in-out duration-300 origin-left
+		absolute top-0 left-0 tablet:top-0 tablet:left-0 desktop:static flex
+		flex-col justify-start items-center
+		w-auto h-screen
+		bg-foreground border-none
+		shadow-lg shadow-shadow/50
+	}
+
+	.sideMenu {
+		@apply transition ease-in-out duration-300 origin-left
+		hidden tablet:flex
+		flex-row tablet:flex-col desktop:flex-row
+		items-center justify-start tablet:justify-center desktop:justify-start
+		w-full
+		rounded-md
+		py-1 tablet:pt-0 desktop:py-1 desktop:pr-3
+		mt-0 mb-3 tablet:my-1
+		hover:bg-primary hover:fill-white
+		font-bold text-xs hover:text-white;
+	}
+
+	.sideMenuModal {
+		@apply transition ease-in-out duration-300 origin-left
+		flex-row
+		justify-start items-center
+		w-full h-auto
+		rounded-2xl hover:rounded-md
+		pr-3
+		my-1
+		group-hover/sideMenu:bg-primary group-hover/sideMenu:fill-white
+		font-bold text-xs  group-hover/sideMenu:text-white;
+	}
+
+	.subMenu {
+		@apply transition ease-in-out duration-500 origin-top
+		flex flex-row
+		items-center justify-start
+		w-full
+		rounded-md
+		py-0 pl-2
+		text-text fill-text hover:fill-primary
+		font-bold text-xs hover:text-primary;
+	}
+
+	.company {
+		@apply flex transition ease-in-out duration-300 origin-left
+		flex-row tablet:flex-col desktop:flex-row
+		justify-center items-center desktop:justify-start
+		px-1 py-1.5 tablet:py-2 desktop:pb-1.5 desktop:pr-3
+		desktop:my-3
+		text-text font-bold text-sm;
+	}
+
+	.companyModal {
+		@apply flex transition ease-in-out duration-300 origin-left
+		flex-row
+		justify-start items-center
+		p-1 tablet:pl-2 tablet:pt-2 tablet:pb-1.5 tablet:pr-3 desktop:pl-1
+		my-3
+		text-text font-bold text-sm;
+	}
+	
 }
