@@ -15,8 +15,8 @@ jobs:
       - name: Deploy to Hostinger
         uses: peaceiris/actions-ssh-key-action@v3
         with:
-          host: your_hostinger_ip_address
-          username: your_hostinger_username
+          host: 62.72.50.33
+          username: u792480622
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd public_html
