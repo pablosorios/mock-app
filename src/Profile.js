@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Profile({content, duplicated}) {
 	return(
-		<Link to='/'>
+		<Link to='/cv'>
 			<div className={`${duplicated ? 'top-1 right-4' : 'right-6 top-5'} absolute tablet:static flex flex-row items-center w-auto tablet:justify-self-end h-14 py-1 desktop:pb-1`}>
 				<span className='text-text font-bold pr-2 text-xs'>{content.status === 'none' ? 'Login' : content.name}</span>
 				<div className='flex items-center justify-center desktop:justify-start mt-2 mb-2 mx-auto hover:bg-secondary rounded-3xl bg-transparent fill-text group'>

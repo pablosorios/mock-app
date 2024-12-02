@@ -28,6 +28,8 @@ module.exports = {
 				yellow: 'hsl(var(--yellow) / <alpha-value>)',
 				green: 'hsl(var(--green) / <alpha-value>)',
 				shadow: 'hsl(var(--shadow) / <alpha-value>)',
+				icon: 'hsl(var(--icon) / <alpha-value>)',
+				filling: 'hsl(var(--filling) / <alpha-value>)',
 			},
 		},
 	},

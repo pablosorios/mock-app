@@ -946,7 +946,7 @@
 				"alt": "Ministerio"
 			},
 			"color": "#691E35",
-			"description": {
+			"name": {
 				"default": "The night of the best",
 				"es": "La noche de los mejores"
 			},
@@ -954,7 +954,7 @@
 				"year": 2018,
 				"month": 12
 			},
-			"name": {
+			"description": {
 				"default": "Recognition for obtaining one of the best scores nationwide in the State Examination of Quality of Higher Education -SABER PRO- 2017",
 				"es": "Reconocimiento por obtener uno de los mejores puntajes a nivel nacional en el Examen de Estado de Calidad de la Educación Superior -SABER PRO- 2017"
 			}
@@ -969,7 +969,7 @@
 				"alt": "Javeriana"
 			},
 			"color": "#2C5697",
-			"name": {
+			"description": {
 				"default": "Effects of Relational Training on Product Choices in a Simulated Shopping Platform",
 				"es": "Efectos de un entrenamiento relacional sobre las elecciones de producto en una plataforma de compras simulada"
 			},
@@ -978,7 +978,7 @@
 				"month": 9,
 				"day": 1
 			},
-			"description": {
+			"name": {
 				"default": "Thesis Dissertation",
 				"es": "Tesis de Pregrado"
 			}
@@ -1023,6 +1023,65 @@
 			]
 		},
 		{
+			"name": "Ada Rodríguez",
+			"company": "Snoonu",
+			"email": "mailto:ada.rodriguez@snoonu.com",
+			"linkedin": "https://www.linkedin.com/in/adalrodriguez/",
+			"position": {
+				"default": "Senior Product Manager",
+				"es": "Gerente de Producto Senior"
+			},
+			"icon": {
+				"src": "https://play-lh.googleusercontent.com/mOA9OrGPXqJQGpvSMYdAa6qrPC9H6pS61p7visk4yFjwbggVgJMQ7ednP-xcAqsrMpw=w240-h480-rw",
+				"alt": "Snoonu"
+			},
+			"color": "#D90016",
+			"relationships": [
+				{
+					"type": {
+						"default": "Coworker",
+						"es": "Compañera de Equipo"
+					},
+					"company": "Snoonu",
+					"icon": {
+						"src": "https://play-lh.googleusercontent.com/mOA9OrGPXqJQGpvSMYdAa6qrPC9H6pS61p7visk4yFjwbggVgJMQ7ednP-xcAqsrMpw=w240-h480-rw",
+						"alt": "Snoonu"
+					},
+					"start": {
+						"year": 2022,
+						"month": 5,
+						"day": 9
+					},
+					"end": {
+						"year": 2022,
+						"month": 10,
+						"day": 1
+					}
+				},
+				{
+					"type": {
+						"default": "Direct Report",
+						"es": "Reporte Directo"
+					},
+					"company": "Snoonu",
+					"icon": {
+						"src": "https://play-lh.googleusercontent.com/mOA9OrGPXqJQGpvSMYdAa6qrPC9H6pS61p7visk4yFjwbggVgJMQ7ednP-xcAqsrMpw=w240-h480-rw",
+						"alt": "Snoonu"
+					},
+					"start": {
+						"year": 2022,
+						"month": 10,
+						"day": 1
+					},
+					"end": {
+						"year": 2024,
+						"month": 9,
+						"day": 11
+					}
+				}
+			]
+		},
+		{
 			"name": "Jaime Flores",
 			"company": "Latam",
 			"email": "mailto:jaime.flores@latam.com",
@@ -1039,8 +1098,8 @@
 			"relationships": [
 				{
 					"type": {
-						"default": "Compañero de Equipo",
-						"es": "Coworker"
+						"default": "Coworker",
+						"es": "Compañero de Equipo"
 					},
 					"company": "Rappi",
 					"icon": {
@@ -1077,6 +1136,65 @@
 						"year": 2022,
 						"month": 9,
 						"day": 1
+					}
+				}
+			]
+		},
+		{
+			"name": "Diana Iturriza",
+			"company": "Snoonu",
+			"email": "mailto:diana@snoonu.com",
+			"linkedin": "https://www.linkedin.com/in/diana-iturriza-designer/",
+			"position": {
+				"default": "Product Designer",
+				"es": "Deseñadora de Producto"
+			},
+			"icon": {
+				"src": "https://play-lh.googleusercontent.com/mOA9OrGPXqJQGpvSMYdAa6qrPC9H6pS61p7visk4yFjwbggVgJMQ7ednP-xcAqsrMpw=w240-h480-rw",
+				"alt": "Snoonu"
+			},
+			"color": "#D90016",
+			"relationships": [
+				{
+					"type": {
+						"default": "Coworker",
+						"es": "Compañera de Equipo"
+					},
+					"company": "Rappi",
+					"icon": {
+						"src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXtCejs34epR6oL_GlM8pfNsEY-h8UY5IPRQ&s",
+						"alt": "Rappi"
+					},
+					"start": {
+						"year": 2020,
+						"month": 2,
+						"day": 14
+					},
+					"end": {
+						"year": 2021,
+						"month": 8,
+						"day": 27
+					}
+				},
+				{
+					"type": {
+						"default": "Direct Report",
+						"es": "Reporte Directo"
+					},
+					"company": "Snoonu",
+					"icon": {
+						"src": "https://play-lh.googleusercontent.com/mOA9OrGPXqJQGpvSMYdAa6qrPC9H6pS61p7visk4yFjwbggVgJMQ7ednP-xcAqsrMpw=w240-h480-rw",
+						"alt": "Snoonu"
+					},
+					"start": {
+						"year": 2023,
+						"month": 9,
+						"day": 1
+					},
+					"end": {
+						"year": 2024,
+						"month": 9,
+						"day": 11
 					}
 				}
 			]

@@ -20,6 +20,8 @@
 	--yellow: 50deg 86% 44%;
 	--green: 167deg 100% 32%;
 	--shadow: 210deg 13% 6%;
+	--icon: 216deg 39% 17%;
+	--filling: 191deg 91% 54%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,6 +40,8 @@
 		--yellow: 50deg 75% 76%;
 		--green: 166deg 47% 67%;
 		--shadow: 210deg 13% 6%;
+		--icon: 201deg 78% 57%;
+		--filling: 216deg 39% 17%;
 	}
 }
 

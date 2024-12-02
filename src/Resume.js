@@ -51,7 +51,7 @@ export default function Resume({profile}) {
 							</svg>
 							<span key='github-label' className='pl-1 pr-2 self-center group-hover:text-tertiary font-bold'>GitHub</span>
 						</a>
-						<Link key='website-link' to='/dashboard' className='w-auto flex h-7 flex-row rounded-3xl border-2 border-text hover:border-tertiary hover:bg-foreground group items-center m-1 shadow-shadow bg-foreground'>
+						<Link key='website-link' to='/' className='w-auto flex h-7 flex-row rounded-3xl border-2 border-text hover:border-tertiary hover:bg-foreground group items-center m-1 shadow-shadow bg-foreground'>
 							<svg key='website-svg' className='h-7 w-7 bg-text group-hover:bg-tertiary p-1 rounded-3xl fill-foreground group-hover:fill-foreground -ml-0.5 -mt-0.5 -mb-0.5' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
 								<path key='website-path' d='M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q20-22 36-47.5t26.5-53q10.5-27.5 16-56.5t5.5-59q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z'/>
 							</svg>
@@ -84,25 +84,25 @@ export default function Resume({profile}) {
 				</div>
 			</aside>
 			<main key='main' className='flex grow flex-col desktop:h-fill w-full px-2 desktop:overflow-y-auto text-text mt-5 desktop:mt-7 desktop:ml-2'>
-				<div key='work-container' className='print:break-inside-avoid'>
+				<div key='work-container' className='print:break-inside-avoid flex flex-col'>
 					<span key='work-title' className='font-bold py-2 text-2xl self-center'>{language === 'es' ? 'Experiencia Laboral' : 'Work Experience'}</span>
 					{work.map((item, index) => (
 						<Work key={`work[${index}]`} route={`work[${index}]`} item={item} language={language}/>
 					))}
 				</div>
-				<div key='studies-container' className='print:break-inside-avoid'>
+				<div key='studies-container' className='print:break-inside-avoid flex flex-col'>
 					<span key='studies-title' className='font-bold py-2 text-2xl self-center'>{language === 'es' ? 'Formación Académica' : 'Academic Background'}</span>
 					{education.map((item, index) => (
 						<Academic key={`studies[${index}]`} route={`studies[${index}]`} item={item} language={language}/>
 					))}
 				</div>
-				<div key='awards-container' className='print:break-inside-avoid'>
+				<div key='awards-container' className='print:break-inside-avoid flex flex-col'>
 					<span key='awards-title' className='font-bold py-2 text-2xl self-center'>{language === 'es' ? 'Premios y Publicaciones' : 'Awards and Publications'}</span>
 					{awards.map((item, index) => (
 						<Awards key={`studies[${index}]`} route={`studies[${index}]`} item={item} language={language}/>
 					))}
 				</div>
-				<div key='references-container' className='print:break-inside-avoid'>
+				<div key='references-container' className='print:break-inside-avoid flex flex-col'>
 					<span key='references-title' className='font-bold py-2 text-2xl self-center'>{language === 'es' ? 'Referencias' : 'References'}</span>
 					{references.map((item, index) => (
 						<Reference key={`references[${index}]`} route={`references[${index}]`} item={item} language={language}/>

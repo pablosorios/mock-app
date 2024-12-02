@@ -9,8 +9,8 @@ function App() {
 	return (
 		<Router>
 			<Routes>
-				<Route path="/" element={<Resume profile={Profile} />} />
-				<Route path="/dashboard" element={<Template response={Response} />} />
+				<Route path="/" element={<Template response={Response} />} />
+				<Route path="/cv" element={<Resume profile={Profile} />} />
 			</Routes>
 		</Router>
 	);
