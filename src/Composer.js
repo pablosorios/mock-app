@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Paths from './Paths.json'
-import Error from './Error'
 
 export default function Composer({language, setLanguage, languages, translate}) {
 	const { space, menu, submenu } = useParams()
@@ -12,7 +11,6 @@ export default function Composer({language, setLanguage, languages, translate}) 
 	const path = Paths
 	const keys = Object.keys(path)
 	const key_count = keys.length
-	const exist = path.hasOwnProperty(space)
 	const item = path[space] || path[keys[0]]
 	const handleChange = (event) => {
 		setLanguage(event.target.value)
@@ -20,64 +18,58 @@ export default function Composer({language, setLanguage, languages, translate}) 
 	const duplicated = false
 	const children = item.children
 	return (
-		<div key='composer'>
+		<div key='composer-screen' className='flex flex-col tablet:flex-row w-screen h-screen overflow-y-auto print:h-auto'>
 			{
-				!exist && 1 !== 1 ?
-				<Error /> :  
-				<div key='composer-screen' className='flex flex-col tablet:flex-row w-screen h-screen overflow-y-auto print:h-auto'>
-					{
-						children ?
-						<aside key='total_sidebar'>
-							<div key='sidebar'  {...isHidden ? {onMouseOver: toggleSidebar} : null} className={`${isHidden ? `${duplicated ? 'top-1 left-4' : 'top-5 left-6'} sideBar` : 'top-0 left-0 sideModal z-20'} group/sidebar`}>
-								<div key='sidebar-container' className={`${isHidden ? 'flex-row tablet:flex-col desktop:flex-row justify-center desktop:justify-start' : 'flex-row-reverse justify-start'} z-20 flex items-center w-auto p-1`}>
-									<button key='sidebar-toggle' className={`${isHidden ? 'tablet:hidden' : 'desktop:hidden'} flex justify-center items-center fill-text py-2 my-1 h-7 w-7 z-20`} onClick={toggleSidebar}>
-										<svg key='sidebar-toggle-svg' className='justify-self-center self-center' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
-											<path key='sidebar-toggle-path' d={!isHidden ? 'm256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z' : 'M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z'}/>
-										</svg>
-									</button>
-									<Company isHidden={isHidden} company={'Mocca'}/>
-								</div>
-								{children.map((item, index) => (
-									<Menu route={`menu[${index}]`} menu={menu} submenu={submenu} item={item} translate={translate} language={language} isHidden={isHidden}/>
-								))}
-							</div>
-							<div key='fakemenu' className={`${isHidden ? 'hidden' : 'hidden tablet:sideBar desktop:hidden'} z-10`}>
-								{children.map((item, index) => (
-									<div key={`fakemenu[${index}]-container`} className='hidden tablet:flex tablet:flex-col desktop:hidden bg-transparent fill-transparent text-transparent'>
-										<svg key={`fakemenu[${index}]-svg`} className='p-2 tablet:p-1 h-10 w-10 tablet:h-8 tablet:w-10' xlms='http://www.w3.org/2000/svg' viewBox={item.viewbox}>
-											<path key={`fakemenu[${index}]-path`} d={item.path}/>
-										</svg>
-										<span key={`fakemenu[${index}]-label`}>
-											{translate(item.label, language)}
-										</span>
-									</div>
-								))}
-							</div>
-							<button key='blurr' {...!isHidden ? {onMouseOver: toggleSidebar, onClick: toggleSidebar} : null} className={`${isHidden ? 'hidden' : 'flex desktop:hidden'} z-10 absolute h-screen w-screen inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm transition ease-in-out duration-300 origin-left`}></button>
-						</aside>
-						: null
-					}
-					<div key='content-container' className={`${key_count > 0 && duplicated ? 'flex-col' : 'flex-col-reverse'} w-full h-screen flex tablet:flex-col print:h-auto`}>
-						<nav key='navbar' className='w-full h-auto bg-foreground flex flex-row'>
-							{keys.map((key, index) => (
-								<Space route={`space[${index}]`} item={path[key]} current={key === space} name={key} translate={translate} language={language}/>
-							))}
-							<div key='language-box' className='justify-center px-1 items-center hidden tablet:flex tablet:flex-col tablet:pt-1 desktop:flex-row'>
-								<svg key='translate-icon' className='bg-transparent shadow-none fill-text mx-1 h-6 w-6 z-10 tablet:mt-2' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
-									<path key='translate-path' d='m476-80 182-480h84L924-80h-84l-43-122H603L560-80h-84ZM160-200l-56-56 202-202q-35-35-63.5-80T190-640h84q20 39 40 68t48 58q33-33 68.5-92.5T484-720H40v-80h280v-80h80v80h280v80H564q-21 72-63 148t-83 116l96 98-30 82-122-125-202 201Zm468-72h144l-72-204-72 204Z'/>
+				children ?
+				<aside key='total_sidebar'>
+					<div key='sidebar'  {...isHidden ? {onMouseOver: toggleSidebar} : null} className={`${isHidden ? `${duplicated ? 'top-1 left-4' : 'top-5 left-6'} sideBar` : 'top-0 left-0 sideModal z-20'} group/sidebar`}>
+						<div key='sidebar-container' className={`${isHidden ? 'flex-row tablet:flex-col desktop:flex-row justify-center desktop:justify-start' : 'flex-row-reverse justify-start'} z-20 flex items-center w-auto p-1`}>
+							<button key='sidebar-toggle' className={`${isHidden ? 'tablet:hidden' : 'desktop:hidden'} flex justify-center items-center fill-text py-2 my-1 h-7 w-7 z-20`} onClick={toggleSidebar}>
+								<svg key='sidebar-toggle-svg' className='justify-self-center self-center' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
+									<path key='sidebar-toggle-path' d={!isHidden ? 'm256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z' : 'M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z'}/>
 								</svg>
-								<select key='language-select' value={language} onChange={handleChange} className='h-auto my-1 w-auto bg-background rounded-xl justify-center items-center text-text text-sm font-bold'>
-									{languages.map((option, index) => (
-										<option key={`language[${index}]`} value={option}>
-											{option}
-										</option>
-									))}
-								</select>
-							</div>
-						</nav>
+							</button>
+							<Company isHidden={isHidden} company={'Mocca'}/>
+						</div>
+						{children.map((item, index) => (
+							<Menu route={`menu[${index}]`} menu={menu} submenu={submenu} item={item} translate={translate} language={language} isHidden={isHidden}/>
+						))}
 					</div>
-				</div>
+					<div key='fakemenu' className={`${isHidden ? 'hidden' : 'hidden tablet:sideBar desktop:hidden'} z-10`}>
+						{children.map((item, index) => (
+							<div key={`fakemenu[${index}]-container`} className='hidden tablet:flex tablet:flex-col desktop:hidden bg-transparent fill-transparent text-transparent'>
+								<svg key={`fakemenu[${index}]-svg`} className='p-2 tablet:p-1 h-10 w-10 tablet:h-8 tablet:w-10' xlms='http://www.w3.org/2000/svg' viewBox={item.viewbox}>
+									<path key={`fakemenu[${index}]-path`} d={item.path}/>
+								</svg>
+								<span key={`fakemenu[${index}]-label`}>
+									{translate(item.label, language)}
+								</span>
+							</div>
+						))}
+					</div>
+					<button key='blurr' {...!isHidden ? {onMouseOver: toggleSidebar, onClick: toggleSidebar} : null} className={`${isHidden ? 'hidden' : 'flex desktop:hidden'} z-10 absolute h-screen w-screen inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm transition ease-in-out duration-300 origin-left`}></button>
+				</aside>
+				: null
 			}
+			<div key='content-container' className={`${key_count > 0 && duplicated ? 'flex-col' : 'flex-col-reverse'} w-full h-screen flex tablet:flex-col print:h-auto`}>
+				<nav key='navbar' className='w-full h-auto bg-foreground flex flex-row'>
+					{keys.map((key, index) => (
+						<Space route={`space[${index}]`} item={path[key]} current={key === space} name={key} translate={translate} language={language}/>
+					))}
+					<div key='language-box' className='justify-center px-1 items-center hidden tablet:flex tablet:flex-col tablet:pt-1 desktop:flex-row'>
+						<svg key='translate-icon' className='bg-transparent shadow-none fill-text mx-1 h-6 w-6 z-10 tablet:mt-2' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
+							<path key='translate-path' d='m476-80 182-480h84L924-80h-84l-43-122H603L560-80h-84ZM160-200l-56-56 202-202q-35-35-63.5-80T190-640h84q20 39 40 68t48 58q33-33 68.5-92.5T484-720H40v-80h280v-80h80v80h280v80H564q-21 72-63 148t-83 116l96 98-30 82-122-125-202 201Zm468-72h144l-72-204-72 204Z'/>
+						</svg>
+						<select key='language-select' value={language} onChange={handleChange} className='h-auto my-1 w-auto bg-background rounded-xl justify-center items-center text-text text-sm font-bold'>
+							{languages.map((option, index) => (
+								<option key={`language[${index}]`} value={option}>
+									{option}
+								</option>
+							))}
+						</select>
+					</div>
+				</nav>
+			</div>
 		</div>
 	)
 }

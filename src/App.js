@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './Home'
 import Composer from './Composer'
 import Flexer from './Flexer'
 import Resume from './Resume'
