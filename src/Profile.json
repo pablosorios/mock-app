@@ -1,7 +1,7 @@
 {
 	"name": "Pablo Osorio Salazar",
 	"position": {
-		"default": "Product Manager",
+		"en": "Product Manager",
 		"es": "Gerente de Producto"
 	},
 	"tags": {
@@ -10,98 +10,82 @@
 		"email": "mailto:osoriosalazarpablo@gmail.com"
 	},
 	"introduction": {
-		"default": "Results-driven Psychologist with 5 years of proven experience in Product Management. Skilled in logical reasoning, technical know-how, SQL, data analysis, market research, and consumer insights. Adept at leveraging psychological insights to drive product innovation and success. Proven ability to manage a team of product managers across several products and deploy features that impact business metrics. Seeking a challenging role to apply my unique blend of technical, psychological, and market research expertise in developing consumer-facing products.",
+		"en": "Results-driven Psychologist with 5 years of proven experience in Product Management. Skilled in logical reasoning, technical know-how, SQL, data analysis, market research, and consumer insights. Adept at leveraging psychological insights to drive product innovation and success. Proven ability to manage a team of product managers across several products and deploy features that impact business metrics. Seeking a challenging role to apply my unique blend of technical, psychological, and market research expertise in developing consumer-facing products.",
 		"es": "Psicólogo orientado a resultados con 5 años de experiencia comprobada en Gestión de Productos. Experto en razonamiento lógico, conocimientos técnicos, SQL, análisis de datos, investigación de mercado y conocimientos del consumidor. Capaz de aprovechar los conocimientos psicológicos para impulsar la innovación y el éxito de los productos. Capacidad comprobada para gestionar un equipo de gerentes de producto en varios productos e implementar funciones que impactan las métricas comerciales. Buscando un puesto desafiante para aplicar mi combinación única de experiencia técnica, psicológica y de investigación de mercado en el desarrollo de productos orientados al consumidor."
 	},
 	"skills": [
 		{
-			"icon": "",
-			"default": "Product Management",
+			"en": "Product Management",
 			"es": "Gerencia de Producto"
 		},
 		{
-			"icon": "",
-			"default": "SCRUM"
+			"en": "SCRUM"
 		},
 		{
-			"icon": "",
-			"default": "Jira"
+			"en": "Jira"
 		},
 		{
-			"icon": "",
-			"default": "Agile"
+			"en": "Agile"
 		},
 		{
-			"icon": "",
-			"default": "SQL"
+			"en": "SQL"
 		},
 		{
-			"icon": "",
-			"default": "Product Strategy",
+			"en": "Product Strategy",
 			"es": "Estrategia de Producto"
 		},
 		{
-			"icon": "",
-			"default": "Python"
+			"en": "Python"
 		},
 		{
-			"icon": "",
-			"default": "Javascript"
+			"en": "Javascript"
 		},
 		{
-			"icon": "",
-			"default": "HTML"
+			"en": "HTML"
 		},
 		{
-			"icon": "",
-			"default": "CSS"
+			"en": "CSS"
 		},
 		{
-			"icon": "",
-			"default": "Node.js"
+			"en": "Node.js"
 		},
 		{
-			"icon": "",
-			"default": "Cloud Computing",
+			"en": "Cloud Computing",
 			"es": "Computación en la Nube"
 		},
 		{
-			"icon": "",
-			"default": "Leadership",
+			"en": "Leadership",
 			"es": "Liderazgo"
 		},
 		{
-			"icon": "",
-			"default": "Communication",
+			"en": "Communication",
 			"es": "Comunicación"
 		},
 		{
-			"icon": "",
-			"default": "Microsoft Excel"
+			"en": "Microsoft Excel"
 		},
 		{
-			"icon": "",
-			"default": "Github"
+			"en": "Github"
 		}
 	],
 	"languages": [
 		{
 			"name": {
-				"default": "Spanish",
+				"en": "Spanish",
 				"es": "Español"
 			},
 			"fluency": {
-				"default": "Native (both in literacy and verbally)",
+				"en": "Native (both in literacy and verbally)",
 				"es": "Lengua materna (Fluido en lectoescritura y verbalmente)"
 			}
 		},
 		{
 			"name": {
-				"default": "English",
+				"en": "English",
 				"es": "Inglés"
 			},
 			"fluency": {
-				"default": "Advanced in literacy and verbally (C1)",
+				"en": "Advanced in literacy and verbally (C1)",
 				"es": "Avanzado en lectoescritura y verbalmente (C1)"
 			}
 		}
@@ -116,13 +100,13 @@
 			},
 			"color": "#642f9f",
 			"modality": {
-				"default": "Remote",
+				"en": "Remote",
 				"es": "Remoto"
 			},
 			"experience": [
 				{
 					"position": {
-						"default": "Product Manager",
+						"en": "Product Manager",
 						"es": "Gerente de Producto"
 					},
 					"start": {
@@ -133,11 +117,11 @@
 					"functions": [
 						{
 							"name": {
-								"default": "Subscription Management",
+								"en": "Subscription Management",
 								"es": "Manejo de Suscripciones"
 							},
 							"responsibilities": {
-								"default": [
+								"en": [
 									"Conduct user research to understand perception of the benefits and price point",
 									"Cohort management for access to the subscription benefits in the app",
 									"Optimization of subscription charges and decision flow of the renewal charge logic",
@@ -153,11 +137,11 @@
 						},
 						{
 							"name": {
-								"default": "Payment Operations",
+								"en": "Payment Operations",
 								"es": "Operaciones de Pago"
 							},
 							"responsibilities": {
-								"default": [
+								"en": [
 									"Data cleanup to improve finance reporting on all kinds of payments",
 									"Creation of alerts for payments that don't follow the ideal flow",
 									"Improvement of payment batches to optimize cost of collection",
@@ -183,14 +167,14 @@
 			},
 			"color": "#d90217",
 			"modality": {
-				"default": "Hybrid",
+				"en": "Hybrid",
 				"es": "Híbrido"
 			},
 			"location":  "Doha, Qatar",
 			"experience": [
 				{
 					"position": {
-						"default": "Head of Product",
+						"en": "Head of Product",
 						"es": "Cabeza de Producto"
 					},
 					"reports": 5,
@@ -207,11 +191,11 @@
 					"functions": [
 						{
 							"name": {
-								"default": "Operational Excellence",
+								"en": "Operational Excellence",
 								"es": "Excelencia Operacional"
 							},
 							"responsibilities": {
-								"default": [
+								"en": [
 									"Streamlined processes to enhance efficiency and reduce costs",
 									"Orchestrated data analytics initiatives to inform decision-making",
 									"Oversaw cross-functional projects, ensuring timely delivery and objective fulfillment",
@@ -227,11 +211,11 @@
 						},
 						{
 							"name": {
-								"default": "Team Management",
+								"en": "Team Management",
 								"es": "Gestión de Equipos"
 							},
 							"responsibilities": {
-								"default": [
+								"en": [
 									"Led a high-performing team of product operations specialists",
 									"Cultivated a culture of continuous learning and development",
 									"Evaluated team performance and provided actionable feedback",
@@ -249,7 +233,7 @@
 				},
 				{
 					"position": {
-						"default": "Senior Product Manager",
+						"en": "Senior Product Manager",
 						"es": "Gerente de Producto Senior"
 					},
 					"start": {
@@ -265,11 +249,11 @@
 					"functions": [
 						{
 							"name": {
-								"default": "Technology and Tools",
+								"en": "Technology and Tools",
 								"es": "Tecnología y Herramientas"
 							},
 							"responsibilities": {
-								"default": [
+								"en": [
 									"Pioneered the adoption of new technologies and tools to improve product operations and efficiency",
 									"Safeguarded the effective management and security of product data",
 									"Integrated product systems and platforms to streamline workflows and improve data accuracy"
@@ -283,11 +267,11 @@
 						},
 						{
 							"name": {
-								"default": "Product Launch and Go-to-Market Strategy",
+								"en": "Product Launch and Go-to-Market Strategy",
 								"es": "Lanzamiento de Productos y Estrategia de Lanzamiento a Producción"
 							},
 							"responsibilities": {
-								"default": [
+								"en": [
 									"Spearheaded launch plans for new products or features",
 									"Crafted go-to-market strategies to ensure successful adoption and market penetration",
 									"Conducted market research to identify target audiences and competitive landscapes"
@@ -311,13 +295,13 @@
 			},
 			"color": "#1C7CE0",
 			"modality": {
-				"default": "Remote",
+				"en": "Remote",
 				"es": "Remoto"
 			},
 			"experience": [
 				{
 					"position": {
-						"default": "Head of Product",
+						"en": "Head of Product",
 						"es": "Cabeza de Producto"
 					},
 					"reports": 1,
@@ -334,11 +318,11 @@
 					"functions": [
 						{
 							"name": {
-								"default": "Fulfillment Optimization",
+								"en": "Fulfillment Optimization",
 								"es": "Optimización de Entregas"
 							},
 							"responsibilities": {
-								"default": [
+								"en": [
 									"Revamp fulfillment processes to meet B2B service-level agreements and reduce delivery times",
 									"Implement customizable routing algorithms to optimize deliveries for various business needs",
 									"Improve warehouse operations to ensure timely order picking and packing for bulk orders",
@@ -354,11 +338,11 @@
 						},
 						{
 							"name": {
-								"default": "Infrastructure and Logistics",
+								"en": "Infrastructure and Logistics",
 								"es": "Infraestructura y Logística"
 							},
 							"responsibilities": {
-								"default": [
+								"en": [
 									"Manage fulfillment infrastructure, including warehouses, transportation fleets and delivery networks, tailored for B2B needs",
 									"Device a financial solution to create flexible contracts for clients while maintaining a good cost per order (CPO)",
 									"Expand fulfillment capacity to accommodate large-scale B2B orders and support business growth"
@@ -382,14 +366,14 @@
 			},
 			"color": "#FF4055",
 			"modality": {
-				"default": "Hybrid",
+				"en": "Hybrid",
 				"es": "Híbrido"
 			},
 			"location":  "Bogotá, Colombia",
 			"experience": [
 				{
 					"position": {
-						"default": "Product Lead",
+						"en": "Product Lead",
 						"es": "Líder de Producto"
 					},
 					"start": {
@@ -405,11 +389,11 @@
 					"functions": [
 						{
 							"name": {
-								"default": "Finance & Driver Performance Management System",
+								"en": "Finance & Driver Performance Management System",
 								"es": "Finanzas y Gestión de Desempeño de Domiciliarios"
 							},
 							"responsibilities": {
-								"default": [
+								"en": [
 									"Develop and launch a Driver Finance screen to provide drivers with transparent and easy-to-understand information about their earnings",
 									"Implement a performance system to segment drivers based on their performance and offer layered benefits to incentivize positive behavior",
 									"Create and maintain a comprehensive driver performance metrics dashboard to track key indicators and identify areas for improvement",
@@ -425,11 +409,11 @@
 						},
 						{
 							"name": {
-								"default": "Team Management",
+								"en": "Team Management",
 								"es": "Gestión de Equipos"
 							},
 							"responsibilities": {
-								"default": [
+								"en": [
 									"Lead a team of product developers and analysts responsible for driver management products",
 									"Mentor and develop team members to enhance their skills and capabilities",
 									"Foster a culture of innovation and continuous improvement"
@@ -445,7 +429,7 @@
 				},
 				{
 					"position": {
-						"default": "Product Analyst",
+						"en": "Product Analyst",
 						"es": "Analista de Producto"
 					},
 					"start": {
@@ -461,11 +445,11 @@
 					"functions": [
 						{
 							"name": {
-								"default": "Driver Discipline and Performance Management",
+								"en": "Driver Discipline and Performance Management",
 								"es": "Disciplina y Gestión de Rendimiento de Domiciliarios"
 							},
 							"responsibilities": {
-								"default": [
+								"en": [
 									"Develop and implement SQL-based rules to automate driver discipline processes",
 									"Create and maintain a comprehensive driver performance metrics dashboard to track key indicators and identify areas for improvement",
 									"Analyze driver data to identify trends and patterns that may impact performance"
@@ -479,11 +463,11 @@
 						},
 						{
 							"name": {
-								"default": "Data Governance and Analytics",
+								"en": "Data Governance and Analytics",
 								"es": "Gobernanza y Análisis de Datos"
 							},
 							"responsibilities": {
-								"default": [
+								"en": [
 									"Ensure the quality and integrity of driver data",
 									"Develop data governance policies and procedures to protect sensitive driver information",
 									"Leverage data analytics to identify opportunities for process improvement and make data-driven decisions"
@@ -507,14 +491,14 @@
 			},
 			"color": "#011687",
 			"modality": {
-				"default": "On Site",
+				"en": "On Site",
 				"es": "Presencial"
 			},
 			"location":  "Bogotá, Colombia",
 			"experience": [
 				{
 					"position": {
-						"default": "Market Research Consultant",
+						"en": "Market Research Consultant",
 						"es": "Consultor de Investigación de Mercado"
 					},
 					"start": {
@@ -530,11 +514,11 @@
 					"functions": [
 						{
 							"name": {
-								"default": "Quantitative and Qualitative Research",
+								"en": "Quantitative and Qualitative Research",
 								"es": "Investigación Cuantitativa y Cualitativa"
 							},
 							"responsibilities": {
-								"default": [
+								"en": [
 									"Design and execute quantitative research projects, such as surveys, experiments, and data analysis",
 									"Conduct qualitative research methods, such as interviews, focus groups, and ethnographic studies",
 									"Analyze quantitative data using statistical software to identify trends, patterns, and insights",
@@ -550,11 +534,11 @@
 						},
 						{
 							"name": {
-								"default": "Strategic Brand Planning",
+								"en": "Strategic Brand Planning",
 								"es": "Planificación Estratégica de Marca"
 							},
 							"responsibilities": {
-								"default": [
+								"en": [
 									"Collaborate with Marketing and R&D to inform product development and launch decisions",
 									"Provide data-driven insights to optimize product launches and improve the effectiveness of commercial spots",
 									"Conduct market research to assess the potential success of new products or commercial spots"
@@ -574,7 +558,7 @@
 	"education": [
 		{
 			"institution": {
-				"default": "Pontifical Xaverian University",
+				"en": "Pontifical Xaverian University",
 				"es": "Pontificia Universidad Javeriana"
 			},
 			"icon": {
@@ -583,16 +567,16 @@
 			},
 			"color": "#2C5697",
 			"location": {
-				"default": "Bogotá D.C. (Colombia)"
+				"en": "Bogotá D.C. (Colombia)"
 			},
 			"courses": [
 				{
 					"type": {
-						"default": "Undergrad Degree",
+						"en": "Undergrad Degree",
 						"es": "Diploma de Postgrado"
 					},
 					"name": {
-						"default": "Psychology",
+						"en": "Psychology",
 						"es": "Psicología"
 					},
 					"start": {
@@ -608,11 +592,11 @@
 				},
 				{
 					"type": {
-						"default": "Credited Course",
+						"en": "Credited Course",
 						"es": "Curso Acreditado"
 					},
 					"name": {
-						"default": "Spreadsheet (basic and advanced levels)",
+						"en": "Spreadsheet (basic and advanced levels)",
 						"es": "Hoja de cálculo (niveles básico y avanzado)"
 					},
 					"start": {
@@ -630,7 +614,7 @@
 		},
 		{
 			"institution": {
-				"default": "Udemy"
+				"en": "Udemy"
 			},
 			"icon": {
 				"src": "https://play-lh.googleusercontent.com/wKwW77zj6Gd-llTDakdjSDnWUPKSMDGXhnZSXel3A3qQSiM1cbDvuspBpQk15tiT9ik=w240-h480-rw",
@@ -638,17 +622,17 @@
 			},
 			"color": "#350C50",
 			"location": {
-				"default": "Remote",
+				"en": "Remote",
 				"es": "Remoto"
 			},
 			"courses": [
 				{
 					"type": {
-						"default": "Online Course",
+						"en": "Online Course",
 						"es": "Curso En Línea"
 					},
 					"name": {
-						"default": "SQL for Data Analysis",
+						"en": "SQL for Data Analysis",
 						"es": "SQL para análisis de datos"
 					},
 					"start": {
@@ -664,11 +648,11 @@
 				},
 				{
 					"type": {
-						"default": "Online Course",
+						"en": "Online Course",
 						"es": "Curso En Línea"
 					},
 					"name": {
-						"default": "Advanced Product Management: Vision, Strategy & Metrics",
+						"en": "Advanced Product Management: Vision, Strategy & Metrics",
 						"es": "Manejo Avanzado de Productos: Visión Estrategia y Métricas"
 					},
 					"start": {
@@ -684,11 +668,11 @@
 				},
 				{
 					"type": {
-						"default": "Online Course",
+						"en": "Online Course",
 						"es": "Curso En Línea"
 					},
 					"name": {
-						"default": "Advanced Product Management: Leadership & Communication",
+						"en": "Advanced Product Management: Leadership & Communication",
 						"es": "Manejo Avanzado de Productos: Liderazgo y Comunicación"
 					},
 					"start": {
@@ -704,11 +688,11 @@
 				},
 				{
 					"type": {
-						"default": "Online Course",
+						"en": "Online Course",
 						"es": "Curso En Línea"
 					},
 					"name": {
-						"default": "Goal Setting at Work: Plan for Success and Reach Your Goals",
+						"en": "Goal Setting at Work: Plan for Success and Reach Your Goals",
 						"es": "Fijando Metas en el Trabajo: Planea para el éxito y alcanza tus metas"
 					},
 					"start": {
@@ -726,7 +710,7 @@
 		},
 		{
 			"institution": {
-				"default": "Massachusetts Institute of Technology",
+				"en": "Massachusetts Institute of Technology",
 				"es": "Instituto de Tecnología de Massachusetts (MIT)"
 			},
 			"icon": {
@@ -735,17 +719,17 @@
 			},
 			"color": "#A41F34",
 			"location": {
-				"default": "Remote",
+				"en": "Remote",
 				"es": "Remoto"
 			},
 			"courses": [
 				{
 					"type": {
-						"default": "Online Course (edX)",
+						"en": "Online Course (edX)",
 						"es": "Curso En Línea (edX)"
 					},
 					"name": {
-						"default": "Introduction to Computational Science and Programming Using Python",
+						"en": "Introduction to Computational Science and Programming Using Python",
 						"es": "Introducción a la ciencia computacional y programación usando Python"
 					},
 					"start": {
@@ -763,7 +747,7 @@
 		},
 		{
 			"institution": {
-				"default": "Autonomous University of Madrid (UAM)",
+				"en": "Autonomous University of Madrid (UAM)",
 				"es": "Universidad Autónoma de Madrid"
 			},
 			"icon": {
@@ -772,17 +756,17 @@
 			},
 			"color": "#4B772A",
 			"location": {
-				"default": "Remote",
+				"en": "Remote",
 				"es": "Remoto"
 			},
 			"courses": [
 				{
 					"type": {
-						"default": "Online Course (edX)",
+						"en": "Online Course (edX)",
 						"es": "Curso En Línea (edX)"
 					},
 					"name": {
-						"default": "Introduction to web app development",
+						"en": "Introduction to web app development",
 						"es": "Introducción al desarrollo de aplicaciones web"
 					},
 					"start": {
@@ -800,7 +784,7 @@
 		},
 		{
 			"institution": {
-				"default": "IBM"
+				"en": "IBM"
 			},
 			"icon": {
 				"src": "https://cdn-icons-png.freepik.com/512/882/882727.png",
@@ -808,17 +792,17 @@
 			},
 			"color": "#579ADD",
 			"location": {
-				"default": "Remote",
+				"en": "Remote",
 				"es": "Remoto"
 			},
 			"courses": [
 				{
 					"type": {
-						"default": "Online Course (edX)",
+						"en": "Online Course (edX)",
 						"es": "Curso En Línea (edX)"
 					},
 					"name": {
-						"default": "Introduction to Cloud Development with HTML, CSS, and JavaScript",
+						"en": "Introduction to Cloud Development with HTML, CSS, and JavaScript",
 						"es": "Introducción al desarrollo en la nube con HTML, CSS y Javascript"
 					},
 					"start": {
@@ -834,11 +818,11 @@
 				},
 				{
 					"type": {
-						"default": "Online Course (edX)",
+						"en": "Online Course (edX)",
 						"es": "Curso En Línea (edX)"
 					},
 					"name": {
-						"default": "Introduction to Cloud Computing",
+						"en": "Introduction to Cloud Computing",
 						"es": "Introducción a la computación en la nube"
 					},
 					"start": {
@@ -854,11 +838,11 @@
 				},
 				{
 					"type": {
-						"default": "Online Course (edX)",
+						"en": "Online Course (edX)",
 						"es": "Curso En Línea (edX)"
 					},
 					"name": {
-						"default": "Developing Cloud Native Applications",
+						"en": "Developing Cloud Native Applications",
 						"es": "Desarrollando aplicaciones nativas en la nube"
 					},
 					"start": {
@@ -874,11 +858,11 @@
 				},
 				{
 					"type": {
-						"default": "Online Course (edX)",
+						"en": "Online Course (edX)",
 						"es": "Curso En Línea (edX)"
 					},
 					"name": {
-						"default": "Application Development with Node.JS and Express",
+						"en": "Application Development with Node.JS and Express",
 						"es": "Desarrollo de aplicaciones con Node.JS y Express"
 					},
 					"start": {
@@ -894,11 +878,11 @@
 				},
 				{
 					"type": {
-						"default": "Online Course (edX)",
+						"en": "Online Course (edX)",
 						"es": "Curso En Línea (edX)"
 					},
 					"name": {
-						"default": "Introduction to Containers, Kubernetes and OpenShift",
+						"en": "Introduction to Containers, Kubernetes and OpenShift",
 						"es": "Introducción a contenedores, Kubernetes y OpenShift"
 					},
 					"start": {
@@ -914,11 +898,11 @@
 				},
 				{
 					"type": {
-						"default": "Online Course (edX)",
+						"en": "Online Course (edX)",
 						"es": "Curso En Línea (edX)"
 					},
 					"name": {
-						"default": "Python Basics for Data Science",
+						"en": "Python Basics for Data Science",
 						"es": "Fundamentos de Python para ciencia de datos"
 					},
 					"start": {
@@ -938,7 +922,7 @@
 	"awards": [
 		{
 			"entity": {
-				"default": "Ministry of National Education (Republic of Colombia)",
+				"en": "Ministry of National Education (Republic of Colombia)",
 				"es": "Ministerio de Educación Nacional (República de Colombia)"
 			},
 			"icon": {
@@ -947,7 +931,7 @@
 			},
 			"color": "#691E35",
 			"name": {
-				"default": "The night of the best",
+				"en": "The night of the best",
 				"es": "La noche de los mejores"
 			},
 			"date": {
@@ -955,13 +939,13 @@
 				"month": 12
 			},
 			"description": {
-				"default": "Recognition for obtaining one of the best scores nationwide in the State Examination of Quality of Higher Education -SABER PRO- 2017",
+				"en": "Recognition for obtaining one of the best scores nationwide in the State Examination of Quality of Higher Education -SABER PRO- 2017",
 				"es": "Reconocimiento por obtener uno de los mejores puntajes a nivel nacional en el Examen de Estado de Calidad de la Educación Superior -SABER PRO- 2017"
 			}
 		},
 		{
 			"entity": {
-				"default": "Pontifical Xaverian University",
+				"en": "Pontifical Xaverian University",
 				"es": "Pontificia Universidad Javeriana"
 			},
 			"icon": {
@@ -970,7 +954,7 @@
 			},
 			"color": "#2C5697",
 			"description": {
-				"default": "Effects of Relational Training on Product Choices in a Simulated Shopping Platform",
+				"en": "Effects of Relational Training on Product Choices in a Simulated Shopping Platform",
 				"es": "Efectos de un entrenamiento relacional sobre las elecciones de producto en una plataforma de compras simulada"
 			},
 			"date": {
@@ -979,7 +963,7 @@
 				"day": 1
 			},
 			"name": {
-				"default": "Thesis Dissertation",
+				"en": "Thesis Dissertation",
 				"es": "Tesis de Pregrado"
 			}
 		}
@@ -991,7 +975,7 @@
 			"email": "mailto:juan.cadavid@hogaru.com",
 			"linkedin": "https://www.linkedin.com/in/jscadavid/",
 			"position": {
-				"default": "CEO"
+				"en": "CEO"
 			},
 			"icon": {
 				"src": "https://play-lh.googleusercontent.com/Oy7UWTHuuB_gQJwICQgwOkn1Nn6l8EHp_zyGaM6TygNtHxUsAJcNWYWJb70PCv113A=w240-h480-rw",
@@ -1001,7 +985,7 @@
 			"relationships": [
 				{
 					"type": {
-						"default": "Direct Superior",
+						"en": "Direct Superior",
 						"es": "Jefe Directo"
 					},
 					"company": "Rappi",
@@ -1028,7 +1012,7 @@
 			"email": "mailto:ada.rodriguez@snoonu.com",
 			"linkedin": "https://www.linkedin.com/in/adalrodriguez/",
 			"position": {
-				"default": "Senior Product Manager",
+				"en": "Senior Product Manager",
 				"es": "Gerente de Producto Senior"
 			},
 			"icon": {
@@ -1039,7 +1023,7 @@
 			"relationships": [
 				{
 					"type": {
-						"default": "Coworker",
+						"en": "Coworker",
 						"es": "Compañera de Equipo"
 					},
 					"company": "Snoonu",
@@ -1060,7 +1044,7 @@
 				},
 				{
 					"type": {
-						"default": "Direct Report",
+						"en": "Direct Report",
 						"es": "Reporte Directo"
 					},
 					"company": "Snoonu",
@@ -1087,7 +1071,7 @@
 			"email": "mailto:jaime.flores@latam.com",
 			"linkedin": "https://www.linkedin.com/in/jfloresaristizabal/",
 			"position": {
-				"default": "Product Manager",
+				"en": "Product Manager",
 				"es": "Gerente de Producto"
 			},
 			"icon": {
@@ -1098,7 +1082,7 @@
 			"relationships": [
 				{
 					"type": {
-						"default": "Coworker",
+						"en": "Coworker",
 						"es": "Compañero de Equipo"
 					},
 					"company": "Rappi",
@@ -1119,7 +1103,7 @@
 				},
 				{
 					"type": {
-						"default": "Direct Superior",
+						"en": "Direct Superior",
 						"es": "Jefe Directo"
 					},
 					"company": "Snoonu",
@@ -1146,7 +1130,7 @@
 			"email": "mailto:diana@snoonu.com",
 			"linkedin": "https://www.linkedin.com/in/diana-iturriza-designer/",
 			"position": {
-				"default": "Product Designer",
+				"en": "Product Designer",
 				"es": "Deseñadora de Producto"
 			},
 			"icon": {
@@ -1157,7 +1141,7 @@
 			"relationships": [
 				{
 					"type": {
-						"default": "Coworker",
+						"en": "Coworker",
 						"es": "Compañera de Equipo"
 					},
 					"company": "Rappi",
@@ -1178,7 +1162,7 @@
 				},
 				{
 					"type": {
-						"default": "Direct Report",
+						"en": "Direct Report",
 						"es": "Reporte Directo"
 					},
 					"company": "Snoonu",

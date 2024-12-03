@@ -1,37 +1,44 @@
 import React, { useState, useCallback } from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import Profile from './Profile.json'
 
-export default function Resume({profile}) {
-	const [language, setLanguage] = useState('default');
-	const toggle = useCallback(() => language !== 'es' ? setLanguage('es') : setLanguage('default'), [language]);
-	const name = profile.name
-	const position = profile.position
-	const tags = profile.tags
-	const introduction = profile.introduction
-	const skills = profile.skills
-	const languages = profile.languages
-	const work = profile.work
-	const education = profile.education
-	const awards = profile.awards
-	const references = profile.references
-	function getTranslatedValue(obj, language) {
-		return obj[language] || obj.default;
+export default function Resume({language, setLanguage, languages, translate}) {
+	const name = Profile.name
+	const handleChange = (event) => {
+		setLanguage(event.target.value)
 	}
+	const monthString = {
+		en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+		es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+	}
+	const months = translate(monthString, language)
+	const position = Profile.position
+	const tags = Profile.tags
+	const introduction = Profile.introduction
+	const skills = Profile.skills
+	const spoken_languages = Profile.languages
+	const work = Profile.work
+	const education = Profile.education
+	const awards = Profile.awards
+	const references = Profile.references
 	return(
 		<div key='resume-main' className='flex flex-col desktop:flex-row w-screen h-fill desktop:h-screen overflow-y-auto'>
-			<div key='translate-box' className='flex flex-row w-max h-max bg-foreground py-2 px-3 fixed top-2 right-2 rounded-2xl print:hidden z-20' onClick={toggle}>
-				<div key='translate-options' className='flex flex-row w-auto bg-background text-text font-bold text-xs items-center rounded-lg'>
-					<span key='translate-en' className={`flex px-2 h-full items-center ${language === 'default' ? 'rounded-lg bg-primary text-white' : ''}`}>EN</span>
-					<span key='translate-es' className={`flex px-2 h-full items-center ${language !== 'default' ? 'rounded-lg bg-primary text-white' : ''}`}>ES</span>
-				</div>
-				<svg key='translate-icon' className='bg-transparent shadow-none fill-text ml-1 h-6 w-6 z-10' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
+			<div key='language-box' className='fixed top-2 right-2 rounded-xl py-1 justify-center px-1 bg-foreground items-center flex'>
+				<svg key='translate-icon' className='shadow-none fill-text mx-1 h-6 w-6 z-10' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
 					<path key='translate-path' d='m476-80 182-480h84L924-80h-84l-43-122H603L560-80h-84ZM160-200l-56-56 202-202q-35-35-63.5-80T190-640h84q20 39 40 68t48 58q33-33 68.5-92.5T484-720H40v-80h280v-80h80v80h280v80H564q-21 72-63 148t-83 116l96 98-30 82-122-125-202 201Zm468-72h144l-72-204-72 204Z'/>
 				</svg>
+				<select key='language-select' value={language} onChange={handleChange} className='h-auto my-1 w-auto bg-background rounded-xl justify-center items-center text-text text-sm font-bold'>
+					{languages.map((option, index) => (
+						<option key={`language[${index}]`} value={option}>
+							{option}
+						</option>
+					))}
+				</select>
 			</div>
 			<aside key='aside' className='flex grow-0 flex-col w-screen print:h-screen desktop:max-w-screen-tablet h-auto mt-12 tablet:mt-0 desktop:m-2 px-5 text-text items-center z-10'>
 				<div key='container' className='w-full border-b-2 border-primary desktop:border-none pb-7 desktop:pb-0'>
 					<span key='resume-name' className='font-bold text-primary flex flex-wrap text-4xl justify-center text-center justify-self-center pt-5 pb-2 desktop:pt-7'>{name}</span>
-					<span key='resume-position' className='p-1 flex min-w-max text-2xl desktop:text-2xl justify-center font-bold py-2'>{position[language] || position.default}</span>
+					<span key='resume-position' className='p-1 flex min-w-max text-2xl desktop:text-2xl justify-center font-bold py-2'>{translate(position, language)}</span>
 					<div key='tags' className='flex flex-row flex-wrap items-center justify-center py-3'>
 						<a key='email-link' className=' w-auto flex h-7 flex-row rounded-3xl border-2 border-text hover:border-tertiary hover:bg-foreground group items-center m-1 shadow-shadow bg-foreground' href={tags.email}>
 							<svg key='email-svg' className='h-7 w-7 bg-text group-hover:bg-tertiary p-1 rounded-3xl fill-foreground  group-hover:fill-foreground -ml-0.5 -mt-0.5 -mb-0.5' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
@@ -51,7 +58,7 @@ export default function Resume({profile}) {
 							</svg>
 							<span key='github-label' className='pl-1 pr-2 self-center group-hover:text-tertiary font-bold'>GitHub</span>
 						</a>
-						<Link key='website-link' to='/' className='w-auto flex h-7 flex-row rounded-3xl border-2 border-text hover:border-tertiary hover:bg-foreground group items-center m-1 shadow-shadow bg-foreground'>
+						<Link key='website-link' to='/dashboard/home/tasks' className='w-auto flex h-7 flex-row rounded-3xl border-2 border-text hover:border-tertiary hover:bg-foreground group items-center m-1 shadow-shadow bg-foreground'>
 							<svg key='website-svg' className='h-7 w-7 bg-text group-hover:bg-tertiary p-1 rounded-3xl fill-foreground group-hover:fill-foreground -ml-0.5 -mt-0.5 -mb-0.5' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
 								<path key='website-path' d='M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q20-22 36-47.5t26.5-53q10.5-27.5 16-56.5t5.5-59q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z'/>
 							</svg>
@@ -61,23 +68,23 @@ export default function Resume({profile}) {
 				</div>
 				<div key='profile-container' className='desktop:bg-foreground desktop:rounded-lg desktop:justify-self-end desktop:border-2 desktop:h-fill desktop:border-text p-2 flex flex-col mt-6 desktop:h-fill desktop:overflow-y-auto desktop:mb-4'>
 					<span key='profile-title' className='font-bold py-3 text-2xl self-center'>{language === 'es' ? 'Perfil' : 'Profile'}</span>
-					<p key='profile-content' className='text-lg px-2 text-justify'>{introduction[language] || introduction.default}</p>
+					<p key='profile-content' className='text-lg px-2 text-justify'>{translate(introduction, language)}</p>
 					<span key='skills-title' className='font-bold pt-6 pb-3 text-2xl self-center'>{language === 'es' ? 'Habilidades' : 'Skills'}</span>
 					<div key='skills-box' className='flex flex-row flex-wrap items-center justify-center py-2'>
 						{skills.map((item, index) => (
 							<span key={`skill[${index}]`} className='rounded-3xl border border-background bg-text text-background px-2 py-1 m-1 text-sm font-bold'>
-								{item[language] || item.default}
+								{translate(item, language)}
 							</span>
 						))}
 					</div>
 					<span key='languages-title' className='font-bold pt-5 pb-3 text-2xl self-center'>{language === 'es' ? 'Lenguajes' : 'Languages'}</span>
-					{languages.map((item, index) => (
+					{spoken_languages.map((item, index) => (
 						<div key={`language[${index}]-box`}  className='flex flex-row w-full py-1'>
 							<span key={`language[${index}]-name`} className='font-bold text-lg pr-2'>
-								{getTranslatedValue(item.name, language) + ':'}
+								{translate(item.name, language) + ':'}
 							</span>
 							<span key={`language[${index}]-fluency`} className='text-lg'>
-								{getTranslatedValue(item.fluency, language)}
+								{translate(item.fluency, language)}
 							</span>
 						</div>
 					))}
@@ -87,25 +94,25 @@ export default function Resume({profile}) {
 				<div key='work-container' className='print:break-inside-avoid flex flex-col'>
 					<span key='work-title' className='font-bold py-2 text-2xl self-center'>{language === 'es' ? 'Experiencia Laboral' : 'Work Experience'}</span>
 					{work.map((item, index) => (
-						<Work key={`work[${index}]`} route={`work[${index}]`} item={item} language={language}/>
+						<Work key={`work[${index}]`} route={`work[${index}]`} item={item} translate={translate} language={language} months={months}/>
 					))}
 				</div>
 				<div key='studies-container' className='print:break-inside-avoid flex flex-col'>
 					<span key='studies-title' className='font-bold py-2 text-2xl self-center'>{language === 'es' ? 'Formación Académica' : 'Academic Background'}</span>
 					{education.map((item, index) => (
-						<Academic key={`studies[${index}]`} route={`studies[${index}]`} item={item} language={language}/>
+						<Academic key={`studies[${index}]`} route={`studies[${index}]`} item={item} translate={translate} language={language} months={months}/>
 					))}
 				</div>
 				<div key='awards-container' className='print:break-inside-avoid flex flex-col'>
 					<span key='awards-title' className='font-bold py-2 text-2xl self-center'>{language === 'es' ? 'Premios y Publicaciones' : 'Awards and Publications'}</span>
 					{awards.map((item, index) => (
-						<Awards key={`studies[${index}]`} route={`studies[${index}]`} item={item} language={language}/>
+						<Awards key={`studies[${index}]`} route={`studies[${index}]`} item={item} translate={translate} language={language} months={months}/>
 					))}
 				</div>
 				<div key='references-container' className='print:break-inside-avoid flex flex-col'>
 					<span key='references-title' className='font-bold py-2 text-2xl self-center'>{language === 'es' ? 'Referencias' : 'References'}</span>
 					{references.map((item, index) => (
-						<Reference key={`references[${index}]`} route={`references[${index}]`} item={item} language={language}/>
+						<Reference key={`references[${index}]`} route={`references[${index}]`} item={item} translate={translate} language={language} months={months}/>
 					))}
 				</div>
 			</main>
@@ -113,7 +120,7 @@ export default function Resume({profile}) {
 	);
 }
 
-function Work({route, item, language}) {
+function Work({route, item, translate, language, months}) {
 	const color = item.color
 	const experience = item.experience
 	const modality = item?.modality
@@ -158,7 +165,7 @@ function Work({route, item, language}) {
 				</div>
 				<div key={`${route}-specs`} className='pl-7 text-md flex flex-col justify-center'>
 					<span key={`${route}-modality`} className='font-bold'>
-						{modality[language] || modality.default}
+						{translate(modality, language)}
 					</span>
 					{ location !== '' ?
 						<div key={`${route}-location_box`} className='flex flex-row items-center'>
@@ -175,7 +182,7 @@ function Work({route, item, language}) {
 			<div key={`${route}-content`} className='flex flex-col pl-5 ml-5 border-l-4 -mt-2 py-2' style={{borderColor:`${color}`}}>
 				<ul key={`${route}-list`}>
 					{experience.map((item, index) => (
-						<Experience key={`${route}-experience[${index}]`} route={`${route}-experience[${index}]`} item={item} language={language} color={color}/>
+						<Experience key={`${route}-experience[${index}]`} route={`${route}-experience[${index}]`} item={item} translate={translate} language={language} color={color} months={months}/>
 					))}
 				</ul>
 			</div>
@@ -183,14 +190,9 @@ function Work({route, item, language}) {
 	)
 }
 
-function Experience({ route, item, language, color }) {
+function Experience({ route, item, translate, language, color, months }) {
 	const [isOpen, setIsOpen] = useState(false);
-	const toggle = useCallback(() => setIsOpen(!isOpen), [isOpen]);
-	const monthString = {
-		default: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-		es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
-	};
-	const monthLabel = language === 'es' ? monthString.es : monthString.default
+	const toggle = useCallback(() => setIsOpen(!isOpen), [isOpen])
 	const position = item.position
 	const start = item.start
 	const current_date = { year: new Date().getFullYear(), month: new Date().getMonth() + 1, day: new Date().getDate() }
@@ -202,14 +204,14 @@ function Experience({ route, item, language, color }) {
 			<li key={`${route}-box`} onClick={toggle} className="flex flex-row items-center">
 				<div key={`${route}-group`} className='flex flex-col tablet:flex-wrap tablet:items-center tablet:flex-row pl-4'>
 					<span key={`${route}-position`} className='text-md font-bold'>
-						{position[language] || position.default}
+						{translate(position, language)}
 					</span>
 					<div key={`${route}-time`} className='text-sm tablet:pl-2 flex flex-wrap'>
 						<span key={`${route}-start`} className='pr-1'>
-							{`${start.day} ${monthLabel[start.month -1]} ${start.year === end.year ? '' : start.year} ${language === 'es' ? 'a ' : 'to '}`}
+							{`${start.day} ${months[start.month -1]} ${start.year === end.year ? '' : start.year} ${language === 'es' ? 'a ' : 'to '}`}
 						</span>
 						<span key={`${route}-end`} className=''>
-							{`${end === current_date ? (language === 'es' ? 'presente' : 'present') : end.day + ' ' + monthLabel[end.month -1] + ' ' + end.year}`}
+							{`${end === current_date ? (language === 'es' ? 'presente' : 'present') : end.day + ' ' + months[end.month -1] + ' ' + end.year}`}
 						</span>
 					</div>
 				</div>
@@ -234,26 +236,22 @@ function Experience({ route, item, language, color }) {
 			</li>
 			<ul key={`${route}-list`} className={`${isOpen ? 'flex flex-col' : 'hidden print:flex print:flex-col'} pt-1`}>
 				{functions.map((item, index) => (
-					<Functions key={`${route}-function[${index}]`} route={`${route}-function[${index}]`} item={item} language={language}/>
+					<Functions key={`${route}-function[${index}]`} route={`${route}-function[${index}]`} item={item} translate={translate} language={language}/>
 				))}
 			</ul>
 		</div>
 	);
 }
 
-function Functions({ route, item, language }) {
+function Functions({ route, item, translate, language }) {
 	const name = item.name;
 	const responsibilities = item.responsibilities;
-	function getTranslatedValue(obj, language) {
-		return obj[language] || obj.default;
-	}
-	const realname = getTranslatedValue(name, language);;
-	const items = getTranslatedValue(responsibilities, language);
+	const items = translate(responsibilities, language);
   
 	return (
 	  <div key={`${route}-box`} className='ml-5 pl-5 pt-1 print:break-inside-avoid'>
 		<li key={`${route}-label`} className='list-disc text-md font-bold'>
-			{realname}
+			{translate(name, language)}
 		</li>
 		<ul  key={`${route}-list`} className='ml-5 pl-5'>
 		  {items.map((item, index) => (
@@ -266,12 +264,7 @@ function Functions({ route, item, language }) {
 	);
 }
 
-function Academic({route, item, language}) {
-	const monthString = {
-		default: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-		es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
-	};
-	const monthLabel = language === 'es' ? monthString.es : monthString.default
+function Academic({route, item, translate, language, months}) {
 	const color = item.color
 	const courses = item.courses
 	const location = item?.location
@@ -299,7 +292,7 @@ function Academic({route, item, language}) {
 				<img key={`${route}-icon`} className='w-10 h-10 rounded-md' src={`${icon_src}`} alt={icon_alt} />
 				<div key={`${route}-box`} className='flex flex-col pl-2'>
 					<span key={`${route}-label`} className='text-xl font-bold'>
-						{institution[language] || institution.default}
+						{translate(institution, language)}
 					</span>
 					<div key={`${route}-time`} className='text-sm flex'>
 						{yearsDiff > 0 ? 
@@ -314,7 +307,7 @@ function Academic({route, item, language}) {
 						: null }
 						{yearsDiff === 0 && monthsDiff === 0 ? 
 							<span key={`${route}-date`} className=''>
-								{`${monthLabel[started.month -1]} ${started.year}`}
+								{`${months[started.month -1]} ${started.year}`}
 							</span>
 						: null }
 						<div key={`${route}-location_box`} className='flex flex-row items-center pl-2'>
@@ -324,7 +317,7 @@ function Academic({route, item, language}) {
 								</svg>
 							: null }
 							<span key={`${route}-location`} className='pl-1 text-sm'>
-								{location[language] || location.default}
+								{translate(location, language)}
 							</span>
 						</div>
 					</div>
@@ -333,7 +326,7 @@ function Academic({route, item, language}) {
 			<div key={`${route}-content`} className='flex flex-col pl-5 ml-5 border-l-4 -mt-2 py-2' style={{borderColor:`${color}`}}>
 				<ul key={`${route}-list`}>
 					{courses.map((item, index) => (
-						<Course key={`${route}-courses[${index}]`} route={`${route}-courses[${index}]`} item={item} language={language} color={color}/>
+						<Course key={`${route}-courses[${index}]`} route={`${route}-courses[${index}]`} item={item} translate={translate} language={language} color={color} months={months}/>
 					))}
 				</ul>
 			</div>
@@ -341,12 +334,7 @@ function Academic({route, item, language}) {
 	)
 }
 
-function Course({ route, item, language }) {
-	const monthString = {
-		default: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-		es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
-	};
-	const monthLabel = language === 'es' ? monthString.es : monthString.default
+function Course({ route, item, translate, language, months }) {
 	const course = item.name
 	const start = item.start
 	const end = item?.end || { year: new Date().getFullYear(), month: new Date().getMonth() + 1, day: new Date().getDate() }
@@ -355,30 +343,25 @@ function Course({ route, item, language }) {
 		<li key={`${route}-box`} className="flex flex-col items-start pt-2 pl-4 print:break-inside-avoid">
 			<div key={`${route}-group`} className='flex flex-row items-center tablet:flex-wrap'>
 				<span key={`${route}-position`} className='text-md font-bold'>
-					{course[language] || course.default}
+					{translate(course, language)}
 				</span>
 				<span key={`${route}-type`} className='pl-3 text-md'>
-					{type[language] || type.default}
+					{translate(type, language)}
 				</span>
 			</div>
 			<div key={`${route}-modality`} className='text-sm flex flex-wrap'>
 				<span key={`${route}-start`} className='text-sm pr-1'>
-					{`${monthLabel[start.month -1]} ${start.year === end.year && start.month === end.month ? start.year : (language === 'es' ? 'a ' : 'to ')}`}
+					{`${months[start.month -1]} ${start.year === end.year && start.month === end.month ? start.year : (language === 'es' ? 'a ' : 'to ')}`}
 				</span>
 				<span key={`${route}-end`} className='text-sm'>
-					{`${start.year === end.year && start.month === end.month ? '' : monthLabel[end.month -1] + ' ' + end.year}`}
+					{`${start.year === end.year && start.month === end.month ? '' : months[end.month -1] + ' ' + end.year}`}
 				</span>
 			</div>
 		</li>
 	);
 }
 
-function Awards({route, item, language}) {
-	const monthString = {
-		default: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-		es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
-	};
-	const monthLabel = language === 'es' ? monthString.es : monthString.default
+function Awards({route, item, translate, language, months}) {
 	const color = item.color
 	const entity = item?.entity
 	const icon = item.icon
@@ -393,26 +376,26 @@ function Awards({route, item, language}) {
 				<img key={`${route}-icon`} className='w-10 h-10 rounded-md' src={`${icon_src}`} alt={icon_alt} />
 				<div key={`${route}-box`} className='flex flex-col pl-2'>
 					<span key={`${route}-label`} className='text-xl font-bold'>
-						{entity[language] || entity.default}
+						{translate(entity, language)}
 					</span>
 					<span key={`${route}-title`} className='text-sm flex'>
-						{title[language] || title.default}
+						{translate(title, language)}
 					</span>
 				</div>
 			</div>
 			<div key={`${route}-content`} className='flex flex-col pl-9 ml-5 border-l-4 -mt-2 py-2 pt-4' style={{borderColor:`${color}`}}>
 				<span key={`${route}-description`} className='text-md font-bold'>
-					{description[language] || description.default}
+					{translate(description, language)}
 				</span>
 				<span key={`${route}-date`} className='text-sm flex'>
-					{`${monthLabel[date.month -1]} ${date.year}`}
+					{`${months[date.month -1]} ${date.year}`}
 				</span>
 			</div>
 		</div>
 	)
 }
 
-function Reference({route, item, language}) {
+function Reference({route, item, translate, language, months}) {
 	const color = item.color
 	const company = item?.company
 	const icon = item.icon
@@ -434,7 +417,7 @@ function Reference({route, item, language}) {
 							{company + ':'}
 						</span>
 						<span key={`${route}-position`} className='pl-2 text-sm flex'>
-							{title[language] || title.default}
+							{translate(title, language)}
 						</span>
 					</div>
 				</div>
@@ -451,20 +434,15 @@ function Reference({route, item, language}) {
 			</div>
 			<div key={`${route}-content`} className='flex flex-col pl-9 ml-5 border-l-4 -mt-2 py-2 pt-4' style={{borderColor:`${color}`}}>
 				{relationships.map((item, index) => (
-					<Relation key={`${route}-relationships[${index}]`} route={`${route}-relationships[${index}]`} item={item} language={language}/>
+					<Relation key={`${route}-relationships[${index}]`} route={`${route}-relationships[${index}]`} item={item} translate={translate} language={language} months={months}/>
 				))}
 			</div>
 		</div>
 	)
 }
 
-function Relation({ route, item, language }) {
-	const monthString = {
-		default: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-		es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
-	};
+function Relation({ route, item, translate, language, months }) {
 	const icon =item.icon
-	const monthLabel = language === 'es' ? monthString.es : monthString.default
 	const type = item.type
 	const company = item.company
 	const start = item.start
@@ -473,7 +451,7 @@ function Relation({ route, item, language }) {
 		<li key={`${route}-box`} className="flex flex-col items-start pt-2 pl-0">
 			<div key={`${route}-group`} className='flex flex-row items-center tablet:flex-wrap'>
 				<span key={`${route}-type`} className='font-bold text-md'>
-					{type[language] || type.default}
+					{translate(type, language)}
 				</span>
 				<span key={`${route}-position`} className='pl-1 text-md'>
 					{(language === 'es' ? ' en' : ' at') + ' ' + company}
@@ -482,10 +460,10 @@ function Relation({ route, item, language }) {
 			</div>
 			<div key={`${route}-modality`} className='text-sm flex flex-wrap'>
 				<span key={`${route}-start`} className='text-sm pr-1'>
-					{`${monthLabel[start.month -1]} ${start.year === end.year && start.month === end.month ? start.year : start.year + ' ' + (language === 'es' ? 'a ' : 'to ')}`}
+					{`${months[start.month -1]} ${start.year === end.year && start.month === end.month ? start.year : start.year + ' ' + (language === 'es' ? 'a ' : 'to ')}`}
 				</span>
 				<span key={`${route}-end`} className='text-sm'>
-					{`${start.year === end.year && start.month === end.month ? '' : monthLabel[end.month -1] + ' ' + end.year}`}
+					{`${start.year === end.year && start.month === end.month ? '' : months[end.month -1] + ' ' + end.year}`}
 				</span>
 			</div>
 		</li>
