@@ -12,13 +12,16 @@ export default function Composer({language, setLanguage, languages, translate}) 
 	const keys = Object.keys(path)
 	const key_count = keys.length
 	const item = path[space] || path[keys[0]]
+	const item_name = space || keys[0]
 	const handleChange = (event) => {
 		setLanguage(event.target.value)
 	}
 	const duplicated = false
-	const children = item.children
+	const children = item?.children
+	const def_child = children ? children[0] : undefined
+	const subitem = menu || def_child?.route
 	return (
-		<div key='composer-screen' className='flex flex-col tablet:flex-row w-screen h-screen overflow-y-auto print:h-auto'>
+		<div key='composer-screen' className='flex flex-col tablet:bg-foreground tablet:flex-row w-screen h-screen overflow-y-auto print:h-auto'>
 			{
 				children ?
 				<aside key='total_sidebar'>
@@ -29,10 +32,10 @@ export default function Composer({language, setLanguage, languages, translate}) 
 									<path key='sidebar-toggle-path' d={!isHidden ? 'm256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z' : 'M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z'}/>
 								</svg>
 							</button>
-							<Company isHidden={isHidden} company={'Mocca'}/>
+							<Company key='company-component' isHidden={isHidden} company={'Mocca'}/>
 						</div>
 						{children.map((item, index) => (
-							<Menu route={`menu[${index}]`} menu={menu} submenu={submenu} item={item} translate={translate} language={language} isHidden={isHidden}/>
+							<Menu key={`menu-component[${index}]`} route={`menu[${index}]`} space={item_name} menu={subitem} submenu={submenu} item={item} translate={translate} language={language} isHidden={isHidden}/>
 						))}
 					</div>
 					<div key='fakemenu' className={`${isHidden ? 'hidden' : 'hidden tablet:sideBar desktop:hidden'} z-10`}>
@@ -54,10 +57,10 @@ export default function Composer({language, setLanguage, languages, translate}) 
 			<div key='content-container' className={`${key_count > 0 && duplicated ? 'flex-col' : 'flex-col-reverse'} w-full h-screen flex tablet:flex-col print:h-auto`}>
 				<nav key='navbar' className='w-full h-auto bg-foreground flex flex-row'>
 					{keys.map((key, index) => (
-						<Space route={`space[${index}]`} item={path[key]} current={key === space} name={key} translate={translate} language={language}/>
+						<Space key={`space-component[${index}]`} route={`space[${index}]`} item={path[key]} current={key === item_name} name={key} translate={translate} language={language}/>
 					))}
-					<div key='language-box' className='justify-center px-1 items-center hidden tablet:flex tablet:flex-col tablet:pt-1 desktop:flex-row'>
-						<svg key='translate-icon' className='bg-transparent shadow-none fill-text mx-1 h-6 w-6 z-10 tablet:mt-2' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
+					<div key='language-box' className='justify-center px-1 items-center hidden tablet:flex tablet:flex-col tablet:pt-1 desktop:p-1 desktop:flex-row'>
+						<svg key='translate-icon' className='bg-transparent shadow-none fill-text mx-1 h-6 w-6 tablet:mt-2 desktop:mt-0' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
 							<path key='translate-path' d='m476-80 182-480h84L924-80h-84l-43-122H603L560-80h-84ZM160-200l-56-56 202-202q-35-35-63.5-80T190-640h84q20 39 40 68t48 58q33-33 68.5-92.5T484-720H40v-80h280v-80h80v80h280v80H564q-21 72-63 148t-83 116l96 98-30 82-122-125-202 201Zm468-72h144l-72-204-72 204Z'/>
 						</svg>
 						<select key='language-select' value={language} onChange={handleChange} className='h-auto my-1 w-auto bg-background rounded-xl justify-center items-center text-text text-sm font-bold'>
@@ -69,6 +72,7 @@ export default function Composer({language, setLanguage, languages, translate}) 
 						</select>
 					</div>
 				</nav>
+				<main key='main' className='w-full h-full rounded-tl-lg bg-background'></main>
 			</div>
 		</div>
 	)
@@ -99,73 +103,63 @@ function Company({isHidden, company}) {
 }
 
 function Space({route, item, current, name, translate, language}) {
-	console.log(name)
 	const icon = item.icon
 	return(
-		<div key={`${route}-container`} className='flex mx-auto'>
-			{name === 'cv' && current ?
-				<div key={`${route}-box`} className={`${current ? 'fill-primary' : 'tablet:bg-foreground fill-text'} mx-auto group hover:fill-white hover:text-white bg-transparent w-auto min-w-max rounded-md bg-foreground text-xs font-bold transition-all duration-100 scale-100 origin-bottom desktop:group-hover:text-white desktop:group-hover:bg-transparent py-1 flex flex-col desktop:flex-row items-center`}>
-					<svg key={`${route}-svg`} className='p-2 h-10 w-10' xlms='http://www.w3.org/2000/svg' viewBox={icon.viewbox}>
-						<path key={`${route}-path`} d={icon.path}/>
-					</svg>
-					<span key={`${route}-label`} className={`${current ? 'text-primary' : 'text-text'}  px-3 group-hover:text-white bg-transparent w-auto min-w-max rounded-md bg-foreground text-xs font-bold transition-all duration-100 scale-100 origin-bottom desktop:group-hover:text-white desktop:group-hover:bg-transparent`}>
-						{translate(item.label, language)}
-					</span>
-				</div>
-				: 
-				<Link key={`${route}-link-box`} className={`${current ? 'fill-primary' : 'tablet:bg-foreground fill-text'} mx-auto group hover:fill-white hover:text-white bg-transparent w-auto min-w-max rounded-md bg-foreground text-xs font-bold transition-all duration-100 scale-100 origin-bottom desktop:group-hover:text-white desktop:group-hover:bg-transparent py-1 flex flex-col desktop:flex-row items-center`} to='/cv'>
-					<svg key={`${route}-link-svg`} className='p-2 h-10 w-10' xlms='http://www.w3.org/2000/svg' viewBox={icon.viewbox}>
-						<path key={`${route}-link-path`} d={icon.path}/>
-					</svg>
-					<span key={`${route}-link-label`} className={`${current ? 'text-primary' : 'text-text'}  px-3 group-hover:text-white bg-transparent w-auto min-w-max rounded-md bg-foreground text-xs font-bold transition-all duration-100 scale-100 origin-bottom desktop:group-hover:text-white desktop:group-hover:bg-transparent`}>
-						{translate(item.label, language)}
-					</span>
-				</Link>
-			}
-		</div>
+		<Link key={`${route}-box`} to={`${name === 'cv' ? '/cv': '/dashboard/' + name}`} className={`${current ? 'fill-primary text-primary' : 'hover:fill-white hover:text-white tablet:bg-foreground fill-text text-text'} mx-auto desktop:mx-2 group bg-transparent w-auto min-w-max rounded-md bg-foreground text-xs font-bold transition-all duration-100 scale-100 origin-bottom desktop:group-hover:text-white desktop:group-hover:bg-transparent py-1 flex flex-col desktop:flex-row items-center`}>
+			<svg key={`${route}-svg`} className='p-2 h-10 w-10' xlms='http://www.w3.org/2000/svg' viewBox={icon.viewbox}>
+				<path key={`${route}-path`} d={icon.path}/>
+			</svg>
+			<span key={`${route}-label`} className={`px-3 bg-transparent w-auto min-w-max rounded-md bg-foreground text-xs font-bold transition-all duration-100 scale-100 origin-bottom desktop:group-hover:bg-transparent`}>
+				{translate(item.label, language)}
+			</span>
+		</Link>
 	)
 }
 
-function Menu({ route, menu, submenu, item, translate, language, isHidden }) {
+function Menu({ route, space, menu, submenu, item, translate, language, isHidden }) {
 	const [isOpen, setIsOpen] = useState(false)
 	const toggleSubMenu = () => {
 		setIsOpen(!isOpen)
 	}
 	const icon = item.icon
 	const item_key = item.route
+	const children = item?.children
+	const def_child = children ? children[0] : undefined
+	const child_route = submenu || def_child?.route
 	const current = item_key === menu
 	return (
-		<div key={`${route}-container`} {...!isOpen ? {onMouseEnter: toggleSubMenu, onClick: toggleSubMenu} : {onMouseLeave: toggleSubMenu}} className='group/sideMenu w-full px-2 tablet:px-1 desktop:hover:px-1 flex flex-col'>
+		<Link key={`${route}-container`} {...item.hasOwnProperty('children') ? null : {to: '/dashboard/' + space + '/' + item_key}} {...!isOpen ? {onMouseEnter: toggleSubMenu, onClick: toggleSubMenu} : {onMouseLeave: toggleSubMenu}} className='group/sideMenu w-full px-2 tablet:px-1 desktop:hover:px-1 flex flex-col'>
 			<div key={`${route}-box`} {...isOpen ? {onClick: toggleSubMenu} : null} className={`${item.hasOwnProperty('children') && isOpen ? 'py-1' : 'py-1 tablet:py-2.5 desktop:py-1'} ${isHidden ? 'hidden tablet:flex tablet:sideMenu desktop:sideMenuModal' : 'flex sideMenuModal'} ${current ? 'bg-background fill-primary text-primary' : 'bg-foreground fill-text text-text'} z-20 relative`}>
-				<svg key={`${route}-svg`} className='p-2 tablet:p-1 h-8 w-8 tablet:h-8 tablet:w-8' xlms='http://www.w3.org/2000/svg' viewBox={icon.viewbox} >
+				<svg key={`${route}-svg`} className='p-2 tablet:p-1 h-8 w-8' xlms='http://www.w3.org/2000/svg' viewBox={icon.viewbox} >
 					<path key={`${route}-path`} d={icon.path}/>
 				</svg>
-				<span key={`${route}-label`} className='text-text'>
+				<span key={`${route}-label`} className='w-max'>
 					{translate(item.label, language)}
 				</span>
-				<svg key={`${route}-arrow`} className={`${item.hasOwnProperty('children') ? 'scale-100' : 'scale-0'} ${isHidden ? 'tablet:absolute desktop:static tablet:left-0 tablet:top-3' : 'static'} ${isOpen ? 'rotate-0' : 'rotate-180'} bg-transparent shadow-none fill-text py-1 h-7 w-7 z-10`} xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
+				<svg key={`${route}-arrow`} className={`${item.hasOwnProperty('children') ? 'scale-100' : 'scale-0'} ${isHidden ? 'tablet:absolute desktop:static tablet:left-0 tablet:top-3' : 'static'} ${isOpen ? 'rotate-0' : 'rotate-180'} bg-transparent shadow-none py-1 h-7 w-7 z-10`} xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
 					<path key={`${route}-arrow-path`} d='M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z'/>
 				</svg>
 			</div>
 			{item.hasOwnProperty('children') && isOpen && !isHidden ? 
-				item.children.map((item, index) => (
-					<Submenu route={`${route}[${index}]`} parent_key={item_key} submenu={submenu} menu={menu} item={item} translate={translate} language={language}/>
+				children.map((item, index) => (
+					<Submenu key={`submenu-component[${index}]`} route={`${route}[${index}]`} current={current} space={space} menu={item_key} submenu={child_route} item={item} translate={translate} language={language}/>
 				)) : null
 			}
-		</div>
+		</Link>
 	)
 }
 
-function Submenu({route, parent_key, submenu, item, translate, language}) {
+function Submenu({route, current, space, menu, submenu, item, translate, language}) {
 	const icon = item.icon
+	const subcurrent = current && submenu === item?.route
 	return (
-		<div key={`${route}-container`} className='subMenu'>
+		<Link key={`${route}-container`} {...subcurrent ? null : {to: '/dashboard/' + space + '/' + menu + '/' + item?.route}} className={`subMenu  ${subcurrent ? 'fill-primary text-primary': 'fill-text text-text'} hover:bg-background`}>
 			<svg key={`${route}-svg`} className='p-2 tablet:p-1 desktop:p-2 h-7 w-7' xlms='http://www.w3.org/2000/svg' viewBox={icon.viewbox}>
 				<path key={`${route}-path`} d={icon.path}/>
 			</svg>
 			<span key={`${route}-label`} className='pl-2'>
-				{item.name}
+				{translate(item.label, language)}
 			</span>
-		</div>
+		</Link>
 	)
 }

@@ -23,8 +23,8 @@ export default function Resume({language, setLanguage, languages, translate}) {
 	const references = Profile.references
 	return(
 		<div key='resume-main' className='flex flex-col desktop:flex-row w-screen h-fill desktop:h-screen overflow-y-auto'>
-			<div key='language-box' className='fixed top-2 right-2 rounded-xl py-1 justify-center px-1 bg-foreground items-center flex'>
-				<svg key='translate-icon' className='shadow-none fill-text mx-1 h-6 w-6 z-10' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
+			<div key='language-box' className='fixed top-2 right-2 rounded-xl py-1 justify-center px-1 bg-foreground items-center flex z-20'>
+				<svg key='translate-icon' className='shadow-none fill-text mx-1 h-6 w-6' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
 					<path key='translate-path' d='m476-80 182-480h84L924-80h-84l-43-122H603L560-80h-84ZM160-200l-56-56 202-202q-35-35-63.5-80T190-640h84q20 39 40 68t48 58q33-33 68.5-92.5T484-720H40v-80h280v-80h80v80h280v80H564q-21 72-63 148t-83 116l96 98-30 82-122-125-202 201Zm468-72h144l-72-204-72 204Z'/>
 				</svg>
 				<select key='language-select' value={language} onChange={handleChange} className='h-auto my-1 w-auto bg-background rounded-xl justify-center items-center text-text text-sm font-bold'>
@@ -58,7 +58,7 @@ export default function Resume({language, setLanguage, languages, translate}) {
 							</svg>
 							<span key='github-label' className='pl-1 pr-2 self-center group-hover:text-tertiary font-bold'>GitHub</span>
 						</a>
-						<Link key='website-link' to='/dashboard/home/tasks' className='w-auto flex h-7 flex-row rounded-3xl border-2 border-text hover:border-tertiary hover:bg-foreground group items-center m-1 shadow-shadow bg-foreground'>
+						<Link key='website-link' to='/dashboard/' className='w-auto flex h-7 flex-row rounded-3xl border-2 border-text hover:border-tertiary hover:bg-foreground group items-center m-1 shadow-shadow bg-foreground'>
 							<svg key='website-svg' className='h-7 w-7 bg-text group-hover:bg-tertiary p-1 rounded-3xl fill-foreground group-hover:fill-foreground -ml-0.5 -mt-0.5 -mb-0.5' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
 								<path key='website-path' d='M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q20-22 36-47.5t26.5-53q10.5-27.5 16-56.5t5.5-59q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z'/>
 							</svg>

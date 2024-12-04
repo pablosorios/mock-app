@@ -56,7 +56,7 @@
 		flex-col justify-start items-center 
 		w-auto h-auto tablet:h-screen
 		bg-foreground border border-border tablet:border-none
-		shadow-lg shadow-shadow/50 rounded-md tablet:rounded-none
+		shadow-lg shadow-shadow/50 rounded-md tablet:rounded-none tablet:shadow-none
 		tablet:p-0.5 desktop:p-0
 	}
 
@@ -64,9 +64,9 @@
 		@apply transition ease-in-out duration-300 origin-left
 		absolute top-0 left-0 tablet:top-0 tablet:left-0 desktop:static flex
 		flex-col justify-start items-center
-		w-auto h-screen
+		w-max h-screen
 		bg-foreground border-none
-		shadow-lg shadow-shadow/50
+		shadow-lg shadow-shadow/50 desktop:shadow-none
 	}
 
 	.sideMenu {
@@ -76,7 +76,7 @@
 		items-center justify-start tablet:justify-center desktop:justify-start
 		w-full
 		rounded-md
-		py-1 tablet:pt-0 desktop:py-1 desktop:pr-3
+		py-1 tablet:pt-0 tablet:px-1 desktop:py-1 desktop:pl-1 desktop:pr-3
 		mt-0 mb-3 tablet:my-1
 		hover:bg-primary hover:fill-white
 		font-bold text-xs hover:text-white;
@@ -88,7 +88,7 @@
 		justify-start items-center
 		w-full h-auto
 		rounded-2xl hover:rounded-md
-		pr-3
+		pl-1 pr-3
 		my-1
 		group-hover/sideMenu:bg-primary group-hover/sideMenu:fill-white
 		font-bold text-xs  group-hover/sideMenu:text-white;
@@ -100,9 +100,8 @@
 		items-center justify-start
 		w-full
 		rounded-md
-		py-0 pl-2
-		text-text fill-text hover:fill-primary
-		font-bold text-xs hover:text-primary;
+		py-0 ml-2 -mr-2
+		font-bold text-xs
 	}
 
 	.company {
