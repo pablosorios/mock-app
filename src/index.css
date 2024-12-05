@@ -94,7 +94,7 @@
 		flex flex-row
 		items-center justify-start
 		w-full
-		rounded-l-lg
+		rounded-l-xl
 		py-0 pl-1
 		font-bold text-xs
 	}

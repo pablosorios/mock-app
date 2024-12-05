@@ -60,7 +60,7 @@ export default function Composer({language, setLanguage, languages, translate}) 
 						<Space key={`space-component[${index}]`} route={`space[${index}]`} item={path[key]} current={key === item_name} name={key} translate={translate} language={language}/>
 					))}
 					<div key='profile' className='flex justify-end items-center tablet:grow'>
-						<div key='language-box' className='bg-foreground shadow-lg shadow-shadow/50 tablet:shadow-none tablet:mt-0 rounded-xl tablet:rounded-none tablet:bg-transparent justify-center items-center px-1 fixed top-5 mt-0.5 right-4 py-1 flex flex-row tablet:static tablet:flex-col desktop:flex-row tablet:pt-1 desktop:p-1 z-10 tablet:z-0'>
+						<div key='language-box' className={`${!isHidden ? 'z-0' : 'z-10 tablet:z-0'} bg-foreground shadow-lg shadow-shadow/50 tablet:shadow-none tablet:mt-0 rounded-xl tablet:rounded-none tablet:bg-transparent justify-center items-center px-1 fixed top-5 mt-0.5 right-4 py-1 flex flex-row tablet:static tablet:flex-col desktop:flex-row tablet:pt-1 desktop:p-1`}>
 							<svg key='translate-icon' className='bg-transparent shadow-none fill-text mx-1 h-6 w-6 tablet:mt-2 desktop:mt-0' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
 								<path key='translate-path' d='m476-80 182-480h84L924-80h-84l-43-122H603L560-80h-84ZM160-200l-56-56 202-202q-35-35-63.5-80T190-640h84q20 39 40 68t48 58q33-33 68.5-92.5T484-720H40v-80h280v-80h80v80h280v80H564q-21 72-63 148t-83 116l96 98-30 82-122-125-202 201Zm468-72h144l-72-204-72 204Z'/>
 							</svg>
@@ -132,10 +132,10 @@ function Menu({ route, space, menu, submenu, item, translate, language, isHidden
 	const child_route = submenu || def_child?.route
 	const current = item_key === menu
 	return (
-		<div key='menu-differentiator' className={`w-full group/sideMenu flex flex-col ${isHidden ? 'pl-1 desktop:pl-2': 'pl-1'}`}>
+		<div key='menu-differentiator' {...(isHidden && !isOpen && item.hasOwnProperty('children')) ? { onMouseOver: () => { toggleSidebar(); toggleSubMenu()}, onClick: () => { toggleSidebar(); toggleSubMenu()} } : null} {...(!isHidden && !isOpen) ? { onMouseOver: toggleSubMenu, onClick: toggleSubMenu } : null} {...isOpen ? { onMouseLeave: toggleSubMenu, onClick: toggleSubMenu} : null} className={`w-full group/sideMenu flex flex-col pl-2`}>
 			{current || item.hasOwnProperty('children') ?
-				<div key={`${route}-container`} {...item.hasOwnProperty('children') ? null : {to: '/dashboard/' + space + '/' + item_key}} {...(isHidden && !isOpen && item.hasOwnProperty('children')) ? { onMouseEnter: () => { toggleSidebar(); toggleSubMenu()}, onClick: () => { toggleSidebar(); toggleSubMenu()} } : null} {...(!isHidden && !isOpen) ? { onMouseOver: toggleSubMenu, onClick: toggleSubMenu } : null} {...isOpen ? { onMouseLeave: toggleSubMenu, onClick: toggleSubMenu} : null}>
-					<div key={`${route}-box`} {...isOpen ? {onClick: toggleSubMenu} : null} className={`${isOpen ? 'rounded-l-lg bg-primary fill-white text-white' : ''} py-1 my-1 ${!isOpen && !isHidden ? 'tablet:py-3 tablet:my-1.5 desktop:py-1 desktop:my-1' : (isOpen ? 'py-0 my-1' : 'tablet:pt-1 tablet:pb-2 desktop:py-1')} ${isHidden ? 'hidden tablet:flex tablet:sideMenu desktop:sideMenuModal' : 'flex sideMenuModal'} ${current ? 'bg-background fill-primary text-primary' : 'bg-foreground fill-text text-text'} pl-3 z-20 relative`}>
+				<div key={`${route}-container`} className={`${isOpen ? 'bg-background rounded-l-lg' : ''}`}>
+					<div key={`${route}-box`} {...isOpen ? {onClick: toggleSubMenu} : null} className={`${isOpen ? (item.hasOwnProperty('children') ? 'rounded-l-lg bg-primary fill-white text-white py-1 my-0' : '') : (isHidden ? 'py-1 tablet:pt-0 tablet:pb-1 desktop:py-1 my-1 tablet:my-1.5 desktop:my-1': 'py-1 tablet:py-3 my-1 tablet:my-1 desktop:py-1')} ${isHidden ? 'hidden tablet:flex tablet:sideMenu desktop:sideMenuModal' : 'flex sideMenuModal'} ${current ? 'bg-background fill-primary text-primary' : 'bg-foreground fill-text text-text'} z-20 relative`}>
 						<svg key={`${route}-svg`} className='p-2 tablet:p-1 h-8 w-8' xlms='http://www.w3.org/2000/svg' viewBox={icon.viewbox} >
 							<path key={`${route}-path`} d={icon.path}/>
 						</svg>
@@ -153,8 +153,8 @@ function Menu({ route, space, menu, submenu, item, translate, language, isHidden
 					}
 				</div>
 				:
-				<Link key={`${route}-container`} {...item.hasOwnProperty('children') ? null : {to: '/dashboard/' + space + '/' + item_key}} {...!isHidden ? {onClick: toggleSidebar} : null}>
-					<div key={`${route}-box`} {...isOpen ? {onClick: toggleSubMenu} : null} className={`${item.hasOwnProperty('children') && isOpen ? 'py-1' : 'py-2 desktop:py-1'} ${isHidden ? 'hidden tablet:flex tablet:sideMenu desktop:sideMenuModal' : 'flex sideMenuModal'} ${isOpen ? 'rounded-l-lg bg-primary fill-white text-white' : ''} ${current ? 'bg-background fill-primary text-primary px-3' : 'bg-foreground fill-text text-text'} z-20 relative`}>
+				<Link key={`${route}-container`} {...item.hasOwnProperty('children') ? null : {to: '/dashboard/' + space + '/' + item_key}} {...!isHidden ? {onClick: toggleSidebar} : null} className={`${isOpen ? 'bg-background rounded-l-lg' : ''}`}>
+					<div key={`${route}-box`} {...isOpen ? {onClick: toggleSubMenu} : null} className={`${isHidden ? 'py-1 tablet:pt-0 tablet:pb-1 desktop:py-1 my-1 tablet:my-1.5 desktop:my-1': 'py-1 tablet:py-3 my-1 tablet:my-1 desktop:py-1'} hover:rounded-l-lg hover:bg-primary hover:fill-white hover:text-white ${isHidden ? 'hidden tablet:flex tablet:sideMenu desktop:sideMenuModal' : 'flex sideMenuModal'} ${current ? 'bg-background fill-primary text-primary px-3' : 'bg-foreground fill-text text-text'} z-20 relative`}>
 						<svg key={`${route}-svg`} className='p-2 tablet:p-1 h-8 w-8' xlms='http://www.w3.org/2000/svg' viewBox={icon.viewbox} >
 							<path key={`${route}-path`} d={icon.path}/>
 						</svg>
@@ -176,9 +176,9 @@ function Submenu({route, current, space, menu, submenu, item, translate, languag
 	const icon = item.icon
 	const subcurrent = current && submenu === item?.route
 	return (
-		<div key='submenu-differentiator' className='flex pl-1'>
+		<div key='submenu-differentiator' className='flex pl-1 my-1'>
 			{subcurrent ? 
-				<div key={`${route}-container`} className={`subMenu  ${subcurrent ? 'fill-primary text-primary': 'fill-text text-text hover:bg-background hover:text-primary hover:fill-primary'}`} {...!isHidden ? {onClick: () => { toggleSidebar(); toggleSubMenu()}} : null}>
+				<div key={`${route}-container`} className={`subMenu ${subcurrent ? ' bg-foreground fill-primary text-primary': 'fill-text text-text hover:text-white hover:fill-white hover:bg-primary'}`} {...!isHidden ? {onClick: () => { toggleSidebar(); toggleSubMenu()}} : null}>
 					<svg key={`${route}-svg`} className='p-2 tablet:p-1 desktop:p-2 h-7 w-7' xlms='http://www.w3.org/2000/svg' viewBox={icon.viewbox}>
 						<path key={`${route}-path`} d={icon.path}/>
 					</svg>
@@ -187,7 +187,7 @@ function Submenu({route, current, space, menu, submenu, item, translate, languag
 					</span>
 				</div>
 				:
-				<Link key={`${route}-container`} to={'/dashboard/' + space + '/' + menu + '/' + item?.route} className={`subMenu  ${subcurrent ? 'fill-primary text-primary': 'fill-text text-text hover:bg-background hover:text-primary hover:fill-primary'}`} {...!isHidden ? {onClick: () => { toggleSidebar(); toggleSubMenu()}} : null}>
+				<Link key={`${route}-container`} to={'/dashboard/' + space + '/' + menu + '/' + item?.route} className={`subMenu ${subcurrent ? ' bg-foreground fill-primary text-primary': 'fill-text text-text hover:text-white hover:fill-white hover:bg-primary'}`} {...!isHidden ? {onClick: () => { toggleSidebar(); toggleSubMenu()}} : null}>
 					<svg key={`${route}-svg`} className='p-2 tablet:p-1 desktop:p-2 h-7 w-7' xlms='http://www.w3.org/2000/svg' viewBox={icon.viewbox}>
 						<path key={`${route}-path`} d={icon.path}/>
 					</svg>
