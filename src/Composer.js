@@ -59,20 +59,22 @@ export default function Composer({language, setLanguage, languages, translate}) 
 					{keys.map((key, index) => (
 						<Space key={`space-component[${index}]`} route={`space[${index}]`} item={path[key]} current={key === item_name} name={key} translate={translate} language={language}/>
 					))}
-					<div key='language-box' className='justify-center px-1 items-center hidden tablet:flex tablet:flex-col tablet:pt-1 desktop:p-1 desktop:flex-row'>
-						<svg key='translate-icon' className='bg-transparent shadow-none fill-text mx-1 h-6 w-6 tablet:mt-2 desktop:mt-0' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
-							<path key='translate-path' d='m476-80 182-480h84L924-80h-84l-43-122H603L560-80h-84ZM160-200l-56-56 202-202q-35-35-63.5-80T190-640h84q20 39 40 68t48 58q33-33 68.5-92.5T484-720H40v-80h280v-80h80v80h280v80H564q-21 72-63 148t-83 116l96 98-30 82-122-125-202 201Zm468-72h144l-72-204-72 204Z'/>
-						</svg>
-						<select key='language-select' value={language} onChange={handleChange} className='px-1 h-auto my-1 w-auto bg-background rounded-xl justify-center items-center text-text text-sm font-bold'>
-							{languages.map((option, index) => (
-								<option key={`language[${index}]`} value={option}>
-									{option}
-								</option>
-							))}
-						</select>
+					<div key='profile' className='flex justify-end items-center tablet:grow'>
+						<div key='language-box' className='bg-foreground shadow-lg shadow-shadow/50 tablet:shadow-none tablet:mt-0 rounded-xl tablet:rounded-none tablet:bg-transparent justify-center items-center px-1 fixed top-5 mt-0.5 right-4 py-1 flex flex-row tablet:static tablet:flex-col desktop:flex-row tablet:pt-1 desktop:p-1 z-10 tablet:z-0'>
+							<svg key='translate-icon' className='bg-transparent shadow-none fill-text mx-1 h-6 w-6 tablet:mt-2 desktop:mt-0' xlms='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' >
+								<path key='translate-path' d='m476-80 182-480h84L924-80h-84l-43-122H603L560-80h-84ZM160-200l-56-56 202-202q-35-35-63.5-80T190-640h84q20 39 40 68t48 58q33-33 68.5-92.5T484-720H40v-80h280v-80h80v80h280v80H564q-21 72-63 148t-83 116l96 98-30 82-122-125-202 201Zm468-72h144l-72-204-72 204Z'/>
+							</svg>
+							<select key='language-select' value={language} onChange={handleChange} className='px-1 h-auto my-1 w-auto bg-background rounded-xl justify-center items-center text-text text-sm font-bold'>
+								{languages.map((option, index) => (
+									<option key={`language[${index}]`} value={option}>
+										{option}
+									</option>
+								))}
+							</select>
+						</div>
 					</div>
 				</nav>
-				<main key='main' className='w-full h-full rounded-tl-lg bg-background'></main>
+				<main key='main' className='w-full h-full tablet:rounded-tl-xl desktop:rounded-tl-lg bg-background'></main>
 			</div>
 		</div>
 	)
@@ -80,7 +82,7 @@ export default function Composer({language, setLanguage, languages, translate}) 
 
 function Company({isHidden, company}) {
 	return (
-		<div key='company' className={`${isHidden ? 'company tablet:mb-3 tablet:mt-2 desktop:my-2' : 'companyModal my-2.5 tablet:my-2'} z-20`}>
+		<div key='company' className={`${isHidden ? 'company tablet:mb-4 tablet:mt-0.5' : 'companyModal my-2.5 tablet:my-2'}  desktop:my-1 z-20`}>
 			<svg key='company-svg' version='1.1' xmlns='http://www.w3.org/2000/svg' className='rounded-lg w-8 h-8 bg-icon' viewBox='40 40 432 432'>
 				<path key='company-path[0]' className='fill-white' d="M0 0 C4.24695972 0.30335427 6.26344799 2.98277599 9 6 C9.61875 6.66 10.2375 7.32 10.875 8 C12 10 12 10 11.88671875 12.3046875 C10.6976287 15.9191022 8.72224064 17.56350861 5.9375 20.125 C3.19723902 22.59010804 3.19723902 22.59010804 1 25 C1 25.99 1 26.98 1 28 C2.83797376 29.59924008 2.83797376 29.59924008 5.1875 31.125 C13.59982077 37.45401876 16.93931237 46.87575206 19 57 C19.3744315 62.03402352 19.27952159 66.96313061 19 72 C18.91685547 73.57587891 18.91685547 73.57587891 18.83203125 75.18359375 C18.47407849 80.16116323 17.58980518 84.260245 16 89 C15.51720625 91.28663853 15.05970512 93.57873412 14.625 95.875 C13.2719067 102.3157241 11.4570092 107.42478537 7.73828125 112.8359375 C4.99152052 116.87771755 3.52682004 120.32962374 2.4375 125.125 C0.80233184 132.26434074 -2.03021525 136.09410313 -7.3125 141.0625 C-11.01640069 144.63909805 -13.30742949 148.09421128 -15.625 152.6875 C-18.74495617 158.86271278 -21.89280042 162.52849041 -27.78515625 166.07421875 C-31.88835909 168.64435679 -33.73903335 171.01965931 -35.9375 175.375 C-40.43363785 184.18979657 -46.85495038 188.15302924 -55.4765625 192.59375 C-58.21800895 194.00636583 -58.21800895 194.00636583 -61 196.625 C-64.5656283 199.44778907 -67.92883435 200.54312927 -72.2109375 201.95703125 C-74.8878016 202.95804345 -77.03258048 204.16146925 -79.4375 205.6875 C-83.96396718 208.36743003 -88.1068552 208.63271928 -93.30078125 208.76171875 C-96.10214333 209.00901699 -97.52702473 209.76110206 -100 211 C-102.734375 211.3359375 -102.734375 211.3359375 -105.75 211.375 C-106.73484375 211.40335938 -107.7196875 211.43171875 -108.734375 211.4609375 C-111.8271726 211.0243943 -113.16524737 210.4627957 -115.796875 208.97265625 C-121.12075897 206.11395651 -126.07256364 206.80668011 -131.93359375 207.24414062 C-138.19549293 207.51308767 -142.25430481 206.18282393 -147 202 C-151.7806103 195.47511297 -153.87695758 187.90973806 -155 180 C-155.42990234 180.37294189 -155.85980469 180.74588379 -156.30273438 181.13012695 C-173.79820693 196.22879608 -193.40088868 207.43265136 -216 213 C-216.73686035 213.19174805 -217.4737207 213.38349609 -218.23291016 213.58105469 C-241.73394054 219.56988513 -266.30785241 219.5362274 -287.97265625 207.84765625 C-297.37220452 202.1108997 -304.42624695 194.10032493 -307.52734375 183.3671875 C-309.96482674 171.15962809 -305.9972547 159.37073237 -299.8828125 148.81640625 C-290.71323276 135.10008468 -278.49738935 124.34635472 -265 115 C-266.76859543 111.87094655 -268.53462394 108.75225172 -270.42578125 105.6953125 C-280.79767164 88.91804277 -287.38994445 70.60872191 -283.33984375 50.765625 C-282.42385401 48.02162111 -281.32945731 45.56818015 -280 43 C-279.51402344 42.00613281 -279.02804687 41.01226562 -278.52734375 39.98828125 C-270.96253511 25.73496567 -259.30115608 18.5562244 -244.30078125 13.8359375 C-215.63949991 7.21354926 -186.54641084 18.50238242 -162.29296875 32.91796875 C-148.18284404 41.83931687 -136.23017977 52.39550762 -124.70703125 64.453125 C-123.13693631 66.22383011 -123.13693631 66.22383011 -121 66 C-120.07673608 64.59800664 -119.15800232 63.19283082 -118.26171875 61.7734375 C-116.38946586 59.14184985 -114.10058784 57.02095861 -111.78125 54.78515625 C-110.09831054 53.09852613 -108.6182293 51.35409305 -107.125 49.5 C-104.33668552 46.18751152 -101.21190412 43.79034623 -97.74609375 41.21875 C-94.86165836 38.88822468 -92.23504221 36.39337972 -89.57128906 33.81787109 C-83.8417971 28.28242866 -78.55971352 23.55120131 -71.26953125 20.11328125 C-68.96537059 19.08344704 -68.96537059 19.08344704 -67.09375 17.484375 C-63.51170589 14.94486611 -59.34604347 14.12826564 -55.16796875 12.91796875 C-52.92312772 12.26749077 -50.7010249 11.53608032 -48.5 10.75 C-37.32495732 8.355348 -28.3732607 10.67780804 -18 15 C-16.33364244 15.66743892 -14.66709532 16.33440597 -13 17 C-12.46258179 16.28082397 -12.46258179 16.28082397 -11.91430664 15.54711914 C-10.29786735 13.38495777 -8.68020021 11.22371811 -7.0625 9.0625 C-6.49853516 8.30775391 -5.93457031 7.55300781 -5.35351562 6.77539062 C-4.81533203 6.05673828 -4.27714844 5.33808594 -3.72265625 4.59765625 C-3.22515869 3.93258057 -2.72766113 3.26750488 -2.21508789 2.58227539 C-1 1 -1 1 0 0 Z " transform="translate(403,141)"/>
 				<path key='company-path[1]' className='fill-filling' d="M0 0 C4.24695972 0.30335427 6.26344799 2.98277599 9 6 C9.61875 6.66 10.2375 7.32 10.875 8 C12 10 12 10 11.88671875 12.3046875 C10.6976287 15.9191022 8.72224064 17.56350861 5.9375 20.125 C3.19723902 22.59010804 3.19723902 22.59010804 1 25 C1 25.99 1 26.98 1 28 C2.83797376 29.59924008 2.83797376 29.59924008 5.1875 31.125 C13.59982077 37.45401876 16.93931237 46.87575206 19 57 C19.3744315 62.03402352 19.27952159 66.96313061 19 72 C18.91685547 73.57587891 18.91685547 73.57587891 18.83203125 75.18359375 C18.47407849 80.16116323 17.58980518 84.260245 16 89 C15.51720625 91.28663853 15.05970512 93.57873412 14.625 95.875 C13.2719067 102.3157241 11.4570092 107.42478537 7.73828125 112.8359375 C4.99152052 116.87771755 3.52682004 120.32962374 2.4375 125.125 C0.80233184 132.26434074 -2.03021525 136.09410313 -7.3125 141.0625 C-11.01640069 144.63909805 -13.30742949 148.09421128 -15.625 152.6875 C-18.74495617 158.86271278 -21.89280042 162.52849041 -27.78515625 166.07421875 C-31.88835909 168.64435679 -33.73903335 171.01965931 -35.9375 175.375 C-40.43363785 184.18979657 -46.85495038 188.15302924 -55.4765625 192.59375 C-58.21800895 194.00636583 -58.21800895 194.00636583 -61 196.625 C-64.5656283 199.44778907 -67.92883435 200.54312927 -72.2109375 201.95703125 C-74.8878016 202.95804345 -77.03258048 204.16146925 -79.4375 205.6875 C-83.96396718 208.36743003 -88.1068552 208.63271928 -93.30078125 208.76171875 C-96.10214333 209.00901699 -97.52702473 209.76110206 -100 211 C-102.734375 211.3359375 -102.734375 211.3359375 -105.75 211.375 C-106.73484375 211.40335938 -107.7196875 211.43171875 -108.734375 211.4609375 C-111.8271726 211.0243943 -113.16524737 210.4627957 -115.796875 208.97265625 C-121.12075897 206.11395651 -126.07256364 206.80668011 -131.93359375 207.24414062 C-138.19549293 207.51308767 -142.25430481 206.18282393 -147 202 C-151.7806103 195.47511297 -153.87695758 187.90973806 -155 180 C-155.42990234 180.37294189 -155.85980469 180.74588379 -156.30273438 181.13012695 C-173.79820693 196.22879608 -193.40088868 207.43265136 -216 213 C-216.73686035 213.19174805 -217.4737207 213.38349609 -218.23291016 213.58105469 C-241.74375504 219.57238618 -266.27306374 219.51623042 -287.95703125 207.86328125 C-293.59503496 204.41099913 -299.35549922 200.78356573 -301 194 C-300.56171875 194.37511719 -300.1234375 194.75023437 -299.671875 195.13671875 C-283.02118502 208.57233648 -262.33843349 208.30456829 -242 207 C-234.77484613 206.11364283 -227.89840699 204.28370939 -221 202 C-220.2280127 201.74831055 -219.45602539 201.49662109 -218.66064453 201.23730469 C-198.02054661 194.30934275 -179.77112354 182.9502291 -164 168 C-163.14148438 167.19433594 -162.28296875 166.38867188 -161.3984375 165.55859375 C-149.37856915 153.95633412 -138.32293832 138.27361695 -137.82421875 120.9765625 C-137.78569326 117.314501 -137.86664191 113.65993865 -138 110 C-135.525 112.475 -135.525 112.475 -133 115 C-132.64808594 114.39115967 -132.29617188 113.78231934 -131.93359375 113.1550293 C-118.86076295 90.60396951 -118.86076295 90.60396951 -112 82 C-111.28094482 81.09241943 -111.28094482 81.09241943 -110.54736328 80.16650391 C-104.59043763 72.66646465 -98.5317874 65.28730892 -92.046875 58.234375 C-89.96615109 55.96305043 -87.95361043 53.64118569 -85.9375 51.3125 C-82.23160392 47.15608322 -78.32166745 43.50680759 -74 40 C-73.00742187 39.19304687 -72.01484375 38.38609375 -70.9921875 37.5546875 C-64.33741264 32.24243766 -57.64424626 27.81071381 -50 24 C-49.15695312 23.54882812 -48.31390625 23.09765625 -47.4453125 22.6328125 C-38.17969908 17.75465465 -28.59384824 14.68533124 -18 15 C-15.14453125 15.98828125 -15.14453125 15.98828125 -13 17 C-12.46258179 16.28082397 -12.46258179 16.28082397 -11.91430664 15.54711914 C-10.29786735 13.38495777 -8.68020021 11.22371811 -7.0625 9.0625 C-6.49853516 8.30775391 -5.93457031 7.55300781 -5.35351562 6.77539062 C-4.81533203 6.05673828 -4.27714844 5.33808594 -3.72265625 4.59765625 C-3.22515869 3.93258057 -2.72766113 3.26750488 -2.21508789 2.58227539 C-1 1 -1 1 0 0 Z " transform="translate(403,141)"/>
@@ -95,7 +97,7 @@ function Company({isHidden, company}) {
 				<path key='company-path[10]' className='fill-white' d="M0 0 C0.99 0.33 1.98 0.66 3 1 C1.02 2.98 -0.96 4.96 -3 7 C-3.66 6.67 -4.32 6.34 -5 6 C-3.35 4.02 -1.7 2.04 0 0 Z " transform="translate(298,188)"/>
 				<path key='company-path[11]' className='fill-filling' d="M0 0 C0.66 0 1.32 0 2 0 C1.45276317 3.37462715 0.9451 5.08235 -1 8 C-1.625 5.6875 -1.625 5.6875 -2 3 C-1.34 2.01 -0.68 1.02 0 0 Z " transform="translate(123,185)"/>
 			</svg>
-			<span key='company-label' className={`${isHidden ? 'hidden tablet:flex desktop:pr-5' : 'flex pr-5'} min-w-max text-sm text-text font-bold tablet:flex pl-2 tablet:pl-0 desktop:pl-2 z-20`}>
+			<span key='company-label' className={`${isHidden ? 'hidden tablet:flex pl-0 tablet:pl-0 desktop:pr-5' : 'flex pl-2 pr-5'} min-w-max text-sm text-text font-bold tablet:flex pl-2 desktop:pl-2 z-20`}>
 				{company}
 			</span>
 		</div>
@@ -130,10 +132,10 @@ function Menu({ route, space, menu, submenu, item, translate, language, isHidden
 	const child_route = submenu || def_child?.route
 	const current = item_key === menu
 	return (
-		<div key='menu-differentiator' className='w-full group/sideMenu flex flex-col pl-1'>
-			{current || item.hasOwnProperty('children') ? 
-				<div key={`${route}-container`} {...item.hasOwnProperty('children') ? null : {to: '/dashboard/' + space + '/' + item_key}} {...(isHidden && !isOpen) ? { onMouseEnter: () => { toggleSidebar(); toggleSubMenu()}, onClick: () => { toggleSidebar(); toggleSubMenu()} } : null} {...(!isHidden && !isOpen) ? { onMouseOver: toggleSubMenu, onClick: toggleSubMenu } : null} {...isOpen ? { onMouseLeave: toggleSubMenu, onClick: toggleSubMenu, onClickOutside: toggleSubMenu } : null}>
-					<div key={`${route}-box`} {...isOpen ? {onClick: toggleSubMenu} : null} className={`${isOpen ? 'rounded-l-lg bg-primary fill-white text-white' : ''} py-1 my-1 ${!isOpen && !isHidden ? 'tablet:py-2 tablet:my-1.5 desktop:py-2 desktop:my-1' : (isOpen ? 'py-0 my-1' : 'tablet:pt-1 tablet:pb-2 desktop:py-1')} ${isHidden ? 'hidden tablet:flex tablet:sideMenu desktop:sideMenuModal' : 'flex sideMenuModal'} ${current ? 'bg-background fill-primary text-primary pl-3' : 'bg-foreground fill-text text-text'} z-20 relative`}>
+		<div key='menu-differentiator' className={`w-full group/sideMenu flex flex-col ${isHidden ? 'pl-1 desktop:pl-2': 'pl-1'}`}>
+			{current || item.hasOwnProperty('children') ?
+				<div key={`${route}-container`} {...item.hasOwnProperty('children') ? null : {to: '/dashboard/' + space + '/' + item_key}} {...(isHidden && !isOpen && item.hasOwnProperty('children')) ? { onMouseEnter: () => { toggleSidebar(); toggleSubMenu()}, onClick: () => { toggleSidebar(); toggleSubMenu()} } : null} {...(!isHidden && !isOpen) ? { onMouseOver: toggleSubMenu, onClick: toggleSubMenu } : null} {...isOpen ? { onMouseLeave: toggleSubMenu, onClick: toggleSubMenu} : null}>
+					<div key={`${route}-box`} {...isOpen ? {onClick: toggleSubMenu} : null} className={`${isOpen ? 'rounded-l-lg bg-primary fill-white text-white' : ''} py-1 my-1 ${!isOpen && !isHidden ? 'tablet:py-3 tablet:my-1.5 desktop:py-1 desktop:my-1' : (isOpen ? 'py-0 my-1' : 'tablet:pt-1 tablet:pb-2 desktop:py-1')} ${isHidden ? 'hidden tablet:flex tablet:sideMenu desktop:sideMenuModal' : 'flex sideMenuModal'} ${current ? 'bg-background fill-primary text-primary' : 'bg-foreground fill-text text-text'} pl-3 z-20 relative`}>
 						<svg key={`${route}-svg`} className='p-2 tablet:p-1 h-8 w-8' xlms='http://www.w3.org/2000/svg' viewBox={icon.viewbox} >
 							<path key={`${route}-path`} d={icon.path}/>
 						</svg>
@@ -174,13 +176,26 @@ function Submenu({route, current, space, menu, submenu, item, translate, languag
 	const icon = item.icon
 	const subcurrent = current && submenu === item?.route
 	return (
-		<Link key={`${route}-container`} {...subcurrent ? null : {to: '/dashboard/' + space + '/' + menu + '/' + item?.route}} className={`subMenu  ${subcurrent ? 'fill-primary text-primary': 'fill-text text-text hover:bg-background hover:text-primary hover:fill-primary'}`} {...!isHidden ? {onClick: () => { toggleSidebar(); toggleSubMenu()}} : null}>
-			<svg key={`${route}-svg`} className='p-2 tablet:p-1 desktop:p-2 h-7 w-7' xlms='http://www.w3.org/2000/svg' viewBox={icon.viewbox}>
-				<path key={`${route}-path`} d={icon.path}/>
-			</svg>
-			<span key={`${route}-label`} className='pl-2'>
-				{translate(item.label, language)}
-			</span>
-		</Link>
+		<div key='submenu-differentiator' className='flex pl-1'>
+			{subcurrent ? 
+				<div key={`${route}-container`} className={`subMenu  ${subcurrent ? 'fill-primary text-primary': 'fill-text text-text hover:bg-background hover:text-primary hover:fill-primary'}`} {...!isHidden ? {onClick: () => { toggleSidebar(); toggleSubMenu()}} : null}>
+					<svg key={`${route}-svg`} className='p-2 tablet:p-1 desktop:p-2 h-7 w-7' xlms='http://www.w3.org/2000/svg' viewBox={icon.viewbox}>
+						<path key={`${route}-path`} d={icon.path}/>
+					</svg>
+					<span key={`${route}-label`} className='pl-2'>
+						{translate(item.label, language)}
+					</span>
+				</div>
+				:
+				<Link key={`${route}-container`} to={'/dashboard/' + space + '/' + menu + '/' + item?.route} className={`subMenu  ${subcurrent ? 'fill-primary text-primary': 'fill-text text-text hover:bg-background hover:text-primary hover:fill-primary'}`} {...!isHidden ? {onClick: () => { toggleSidebar(); toggleSubMenu()}} : null}>
+					<svg key={`${route}-svg`} className='p-2 tablet:p-1 desktop:p-2 h-7 w-7' xlms='http://www.w3.org/2000/svg' viewBox={icon.viewbox}>
+						<path key={`${route}-path`} d={icon.path}/>
+					</svg>
+					<span key={`${route}-label`} className='pl-2'>
+						{translate(item.label, language)}
+					</span>
+				</Link>
+			}
+		</div>
 	)
 }

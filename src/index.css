@@ -74,7 +74,7 @@
 		flex-row tablet:flex-col desktop:flex-row
 		items-center justify-start tablet:justify-center desktop:justify-start
 		w-full
-		tablet:pt-1 tablet:pb-2 tablet:px-2
+		tablet:pt-1 tablet:pb-2 tablet:px-2 
 		rounded-l-2xl
 		font-bold text-xs
 	}
@@ -94,8 +94,8 @@
 		flex flex-row
 		items-center justify-start
 		w-full
-		rounded-md
-		py-0 pl-1 ml-3 -mr-2
+		rounded-l-lg
+		py-0 pl-1
 		font-bold text-xs
 	}
 
@@ -104,14 +104,14 @@
 		flex-row tablet:flex-col desktop:flex-row
 		justify-center items-center desktop:justify-start
 		text-text font-bold text-sm
-		tablet:pt-1 tablet:pb-2 desktop:py-1 pl-2
+		tablet:pt-1 tablet:pb-2.5 desktop:pb-3 desktop:pt-0.5 pl-2 tablet:pl-0 desktop:pl-0
 	}
 
 	.companyModal {
 		@apply flex transition ease-in-out duration-300 origin-left
 		flex-row
 		justify-start items-center
-		py-2 pl-2 tablet:pt-5 tablet:pb-4 desktop:py-1
+		py-2 pl-2 tablet:pt-5 tablet:pb-4 desktop:pb-3 desktop:pt-0.5 tablet:pl-1 desktop:pl-0 pr-5 desktop:pr-0
 		text-text font-bold text-sm;
 	}
 	
