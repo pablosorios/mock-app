@@ -54,10 +54,9 @@
 		@apply transition ease-in-out duration-300 origin-left
 		absolute tablet:static tablet:flex
 		flex-col justify-start items-center 
-		w-auto h-auto tablet:h-screen
+		w-max h-auto tablet:h-screen
 		bg-foreground border border-border tablet:border-none
 		shadow-lg shadow-shadow/50 rounded-md tablet:rounded-none tablet:shadow-none
-		tablet:p-0.5 desktop:p-0
 	}
 
 	.sideModal {
@@ -75,23 +74,19 @@
 		flex-row tablet:flex-col desktop:flex-row
 		items-center justify-start tablet:justify-center desktop:justify-start
 		w-full
-		rounded-md
-		py-1 tablet:pt-0 tablet:px-1 desktop:py-1 desktop:pl-1 desktop:pr-3
-		mt-0 mb-3 tablet:my-1
-		hover:bg-primary hover:fill-white
-		font-bold text-xs hover:text-white;
+		tablet:pt-1 tablet:pb-2 tablet:px-2
+		rounded-l-2xl
+		font-bold text-xs
 	}
 
 	.sideMenuModal {
 		@apply transition ease-in-out duration-300 origin-left
-		flex-row
+		flex flex-row
 		justify-start items-center
 		w-full h-auto
-		rounded-2xl hover:rounded-md
-		pl-1 pr-3
-		my-1
-		group-hover/sideMenu:bg-primary group-hover/sideMenu:fill-white
-		font-bold text-xs  group-hover/sideMenu:text-white;
+		tablet:py-3 tablet:px-2 desktop:py-1
+		rounded-l-2xl
+		font-bold text-xs
 	}
 
 	.subMenu {
@@ -100,7 +95,7 @@
 		items-center justify-start
 		w-full
 		rounded-md
-		py-0 ml-2 -mr-2
+		py-0 pl-1 ml-3 -mr-2
 		font-bold text-xs
 	}
 
@@ -108,17 +103,15 @@
 		@apply flex transition ease-in-out duration-300 origin-left
 		flex-row tablet:flex-col desktop:flex-row
 		justify-center items-center desktop:justify-start
-		px-1 py-1.5 tablet:py-2 desktop:pb-1.5 desktop:pr-3
-		desktop:my-3
-		text-text font-bold text-sm;
+		text-text font-bold text-sm
+		tablet:pt-1 tablet:pb-2 desktop:py-1 pl-2
 	}
 
 	.companyModal {
 		@apply flex transition ease-in-out duration-300 origin-left
 		flex-row
 		justify-start items-center
-		p-1 tablet:pl-2 tablet:pt-2 tablet:pb-1.5 tablet:pr-3 desktop:pl-1
-		my-3
+		py-2 pl-2 tablet:pt-5 tablet:pb-4 desktop:py-1
 		text-text font-bold text-sm;
 	}
 	
